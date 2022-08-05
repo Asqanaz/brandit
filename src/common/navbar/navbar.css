@@ -1,0 +1,13 @@
+.navbar{
+    height: 90px;
+    max-width: 1710px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar.dark{
+    background: #fff;
+}
+.navbar.light{
+    background: #000;
+}
