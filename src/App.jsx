@@ -4,16 +4,17 @@ import Home from "./components/Home"
 import Navbar from "./common/navbar/Navbar"
 
 const App = () => {
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState("dark")
+    const [lang, setLang] = useState('En')
     return (
         <Router>
-            <Navbar theme = {theme} setTheme = {setTheme} />
+            <Navbar theme = {theme} setTheme = {setTheme} lang = {lang} setLang = {setLang} />
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/" element={<></>}></Route>
-                <Route path="/" element={<></>}></Route>
-                <Route path="/" element={<></>}></Route>
-                <Route path="/" element={<></>}></Route>
+                <Route path="/" element={<Home theme = {theme} lang = {lang} />}></Route>
+                <Route path="/portfolio" element={<></>}></Route>
+                <Route path="/about" element={<></>}></Route>
+                <Route path="/service" element={<></>}></Route>
+                <Route path="/contact" element={<></>}></Route>
             </Routes>
         </Router>
     )

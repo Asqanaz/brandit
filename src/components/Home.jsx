@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Home = () => {
+const Home = ({theme, lang}) => {
   return (
-    <div>
+    <div  className={`app ${theme}`}>
         
     </div>
   )
