@@ -24,3 +24,14 @@ class ProjectTypeList(generics.ListCreateAPIView):
 class ProjectTypeDetail(generics.RetrieveAPIView):
     queryset = ProjectType.objects.all()
     serializer_class = ProjectTypeSerializer
+
+class ProjectDesignList(generics.ListCreateAPIView):
+    queryset = ProjectDesign.objects.all()
+    serializer_class = ProjectDesignSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class ProjectDesignDetail(generics.RetrieveAPIView):
+    queryset = ProjectDesign.objects.all()
+    serializer_class = ProjectDesignSerializer
