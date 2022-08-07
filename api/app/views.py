@@ -13,3 +13,14 @@ class PortfolioList(generics.ListCreateAPIView):
 class PortfolioDetail(generics.RetrieveAPIView):
     queryset = Portfolio.objects.all()
     serializer_class = PortfolioSerializer
+
+class ProjectTypeList(generics.ListCreateAPIView):
+    queryset = ProjectType.objects.all()
+    serializer_class = ProjectTypeSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class ProjectTypeDetail(generics.RetrieveAPIView):
+    queryset = ProjectType.objects.all()
+    serializer_class = ProjectTypeSerializer
