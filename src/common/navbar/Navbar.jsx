@@ -7,14 +7,19 @@ import { GrMoon } from "react-icons/gr"
 import { IoIosArrowDown } from "react-icons/io"
 import { Link } from "react-router-dom"
 const Navbar = ({ theme, setTheme, lang, setLang }) => {
-    
     const handleChangeTheme = () => {
-        theme === 'light' ? setTheme('dark') : setTheme('light')
+        theme === "light" ? setTheme("dark") : setTheme("light")
     }
     return (
         <nav className={`nav ${theme}`}>
-            <div className={"navbar" + ` ${theme}`}>
-                {theme === 'light' ? <img src={logo_light} alt="brandit logo"/> : <img src={logo_dark} alt="brandit logo"/>  }
+            <div className={`navbar ${theme}`}>
+                <Link to="/">
+                    {theme === "light" ? (
+                        <img src={logo_light} alt="brandit logo" />
+                    ) : (
+                        <img src={logo_dark} alt="brandit logo" />
+                    )}
+                </Link>
                 <ul className={`navbar__list ${theme}`}>
                     <li>
                         <Link to="/portfolio">Portfolio</Link>
@@ -30,18 +35,32 @@ const Navbar = ({ theme, setTheme, lang, setLang }) => {
                     </li>
                 </ul>
                 <div className="navbar__settings">
-                    {theme == "dark" ?  <BsSun onClick = {handleChangeTheme} className="theme-icon" /> : <GrMoon onClick = {handleChangeTheme} className="theme-icon"/>}
+                    {theme === "dark" ? (
+                        <BsSun
+                            onClick={handleChangeTheme}
+                            className="theme-icon"
+                        />
+                    ) : (
+                        <GrMoon
+                            onClick={handleChangeTheme}
+                            className="theme-icon"
+                        />
+                    )}
                     <svg
                         width="2"
                         height="34"
                         viewBox="0 0 2 34"
                         fill="none"
-                        className = "vertical-line"
+                        className="vertical-line"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V34" stroke="white" strokeWidth="2" />
+                        <path
+                            d="M1 0V34"
+                            stroke={theme === "light" ? "black" : "white"}
+                            strokeWidth="2"
+                        />
                     </svg>
                     <span>{lang}</span>
-                    <IoIosArrowDown/>
+                    <IoIosArrowDown />
                 </div>
             </div>
         </nav>

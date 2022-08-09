@@ -1,0 +1,24 @@
+.footer{
+    width: 60vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.dark{
+    background-color: black;
+}
+
+.light{
+    background-color: white;
+}
+
+.icons-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-icons{
+    font-size: 1.5vw;
+}
