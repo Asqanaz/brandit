@@ -16,7 +16,7 @@ const App = () => {
                 <Route path="/service" element={<></>}></Route>
                 <Route path="/contact" element={<></>}></Route>
             </Routes>
-            <Footer theme = {theme} lang = {lang}/>
+            {/* <Footer theme = {theme} lang = {lang}/> */}
         </Router>
     )
 }
