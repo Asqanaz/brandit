@@ -2,8 +2,8 @@
 	"name": "brandit",
 	"version": "1.0.0",
 	"main": "index.js",
-	"homepage": "https://asqanaz.github.io/brandit",
 	"private": true,
+	"homepage": "https://asqanaz.github.io/brandit/",
 	"dependencies": {
 		"gh-pages": "^4.0.0",
 		"react": "^18.0.0",
@@ -16,6 +16,7 @@
 		"test": "react-scripts test",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"eject": "react-scripts eject",
 		"deploy": "gh-pages -d build",
 		"predeploy": "npm run build"
 	},
