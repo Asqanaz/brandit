@@ -27,15 +27,11 @@ import values_icon4 from "../assets/images/icon4.png"
 import values_icon5 from "../assets/images/icon5.png"
 import values_icon6 from "../assets/images/icon6.png"
 import form_image from "../assets/images/form-image.png"
-import { FaFacebookF } from "react-icons/fa"
-import { AiOutlineInstagram, AiTwotoneMail } from "react-icons/ai"
-import { BsTelegram, BsBehance, BsFillTelephoneFill } from "react-icons/bs"
-// import {FiMail} from 'react-icons/fi'
-import {MdEmail} from 'react-icons/md'
 
-const Home = ({ theme, lang }) => {
+const Home = ({ theme, lang,  }) => {
     const ref = useRef()
     const [hoveredRef, isHovered] = useHover()
+    
     return (
         <div className={`app ${theme}`}>
             <section>
@@ -74,7 +70,6 @@ const Home = ({ theme, lang }) => {
                     <div className="items-container">
                         <div className="item first">
                             <span className="service-title">Design</span>
-                            {/* <img src={service1} alt="" className="background-service"/> */}
                         </div>
                         <div className="item second">
                             <span className="service-title">
@@ -157,7 +152,7 @@ const Home = ({ theme, lang }) => {
                             matters for us.
                         </p>
                         <div className="items-container">
-                            <div className="item client">
+                            <div className="item-client">
                                 <img
                                     src={apostrof}
                                     alt=""
@@ -187,7 +182,7 @@ const Home = ({ theme, lang }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item client">
+                            <div className="item-client">
                                 <img
                                     src={apostrof}
                                     alt=""
@@ -217,7 +212,7 @@ const Home = ({ theme, lang }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item client">
+                            <div className="item-client">
                                 <img
                                     src={apostrof}
                                     alt=""
@@ -352,7 +347,7 @@ const Home = ({ theme, lang }) => {
                     </div>
                 </section>
                 <section>
-                    <div className="form-container">
+                    <div className={`form-container ${theme}`}>
                         <div className="form-box">
                             <h2 className="title">
                                 Start your project with Brandit
@@ -379,30 +374,6 @@ const Home = ({ theme, lang }) => {
                     </div>
                 </section>
             </section>
-            <footer>
-                <div className={`footer ${theme}`}>
-                    <div className="icons-container">
-                        <FaFacebookF className="footer-icons" />
-                        <AiOutlineInstagram className="footer-icons" />
-                        <BsBehance className="footer-icons" />
-                        <BsTelegram className="footer-icons" />
-                    </div>
-                    <hr className="hr" />
-                    <div className="info">
-                        <span className="about">About Us</span>
-                        <span className="line">|</span> 
-                        <span className="contact">Contact Us</span>
-                    </div>
-                    <div className="info">
-                        <AiTwotoneMail className="footer-info-icons"/><span className="mail">info@thebrandit.agency</span>
-                        <span className="line">|</span>
-                        <BsFillTelephoneFill className="footer-info-icons"/>
-                        <span className="phone">+374 33 97 00 96</span>
-                    </div>
-
-                    <span className="copyright">@2022 Brandit</span>
-                </div>
-            </footer>
         </div>
     )
 }

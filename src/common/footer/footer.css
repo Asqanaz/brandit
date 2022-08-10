@@ -4,21 +4,53 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.dark{
-    background-color: black;
+
+footer{
+    margin-top: -5.3%;
+    background: #000;
 }
 
-.light{
-    background-color: white;
+.footer * {
+    color: #fff
 }
-
 .icons-container{
+    width: 15%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .footer-icons{
     font-size: 1.5vw;
+}
+
+.hr{
+    width: 100%;
+    margin: 3% 0 3% 0;
+}
+
+.footer span{
+    font-size: 1.1vw;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+}
+
+.line{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.footer-info-icons{
+    margin-right: 10px;
+}
+
+.copyright{
+    margin-top: 15%;
 }

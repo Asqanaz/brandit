@@ -1,25 +1,25 @@
 @keyframes home-animation-right {
     from {
-        margin-top: -720px;
+        margin-top: -95%;
     }
 
     50% {
-        margin-top: 50px;
+        margin-top: 5%;
     }
     to {
-        margin-top: -720px;
+        margin-top: -95%;
     }
 }
 @keyframes home-animation-left {
     from {
-        margin-top: -770px;
+        margin-top: -100%;
     }
 
     50% {
         margin-top: 0;
     }
     to {
-        margin-top: -770px;
+        margin-top: -100%;
     }
 }
 .app.dark {
@@ -85,14 +85,18 @@
     flex-direction: column;
 }
 
+.image-container img{
+    width: 100%;
+}
+
 .right-column img:first-child {
     margin-top: 120px;
     animation: home-animation-right infinite;
-    animation-duration: 15s;
+    animation-duration: 10s;
 }
 .left-column img:first-child {
     animation: home-animation-left infinite;
-    animation-duration: 15s;
+    animation-duration: 10s;
 }
 
 .image-container img {
@@ -129,25 +133,28 @@
 
 .item {
     width: 32%;
-    max-height: 280px;
-    height: 332px;
+    padding-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
 }
 
+.item span{
+    margin-top: 21%;
+}
+
 .first {
     background: url("../assets/images/service1.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 .second {
     background: url("../assets/images/service2.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 .third {
     background: url("../assets/images/service3.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .service-title {
@@ -167,23 +174,25 @@
     gap: 10px;
 }
 
-.grid-items-images {
+.grid.container .grid-items-images{
     width: 100%;
     height: 100%;
 }
 
-.grid-items1 {
-    position: relative;
+.grid.container .grid-items {
     grid-area: sidebar;
 }
 
-.grid-items1:hover {
-    background-color: black;
-    opacity: 0.5;
-    transition: 0.5s;
+.grid-items1{
+    grid-area: sidebar;
 }
+
 .grid-items2 {
     grid-area: main;
+}
+
+.grid-item2:hover{
+
 }
 .grid-items3 {
     grid-area: right;
@@ -209,20 +218,15 @@
     margin-top: 2%;
 }
 
-/* .hoveredTitle{
-    position: absolute;
-    text-align: center;
-    font-size: 1.4vw;
-} */
-
-.client {
-    /* background: url('../assets/images/client.png') no-repeat;
-    background-size: cover;
-    background-position: center; */
+.item-client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
     background: #6321f9;
     position: relative;
     flex-direction: column;
-    padding: 2% 4% 0 4%;
+    padding: 2% 4% 2% 4%;
     flex-basis: 23%;
 }
 
@@ -242,15 +246,17 @@
 }
 
 .for-avatar{
-    width: 50px;
-    height: 50px;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     background: url('../assets/images/avatar1.png') no-repeat center;
     background-size: cover;
 }
 
 .comment{
+    margin-top: 3%;
     color: #fff;
+    font-size: 1.3vw;
 }
 .user-part{
     width: 100%;
@@ -265,6 +271,10 @@
     display: flex;
     flex-direction: column;
     margin-left: 5%;
+}
+
+.user-info span{
+    margin: 0;
 }
 .user-name{
     font-size: 1.3vw;
@@ -302,6 +312,7 @@
     position: absolute;
     top: 5px;
     left: 5px;
+    width: 15%;
 }
 
 .values-title{
@@ -352,9 +363,8 @@
     align-items: center;
 }
 
-.image-box image{
-    width: 80%;
-    height: 80%;
+.image-box img{
+    width: 70%;
 }
 
 .form-button{
@@ -366,54 +376,28 @@
     border-radius: 10px
 }
 
-.footer{
-    width: 60vw;
-    height: 50vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.form-container.dark input{
+    color: #fff;
 }
 
-.dark{
-    background-color: black;
+.form-container.light input{
+    color: #000;
+    border-bottom: 1px solid #000;
+
 }
 
-.icons-container{
-    width: 15%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+@media only screen and (max-width: 600px) {
+    .header.container{
+        flex-direction: column;
+    }
 
-.footer-icons{
-    font-size: 1.5vw;
-}
+    .content-box{
+        width: 100%;
+    }
+    .content-box__text{
+        font-size: 5vw;
+    }
 
-.hr{
-    width: 100%;
-    margin: 3% 0 3% 0;
-}
 
-.footer span{
-    font-size: 1.1vw;
-}
-
-.info{
-    display: flex;
-    align-items: center;
-}
-
-.line{
-    margin-left: 25px;
-    margin-right: 25px;
-}
-
-.footer-info-icons{
-    margin-right: 10px;
-}
-
-.copyright{
-    margin-top: 15%;
 }

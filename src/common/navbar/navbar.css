@@ -4,10 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1% 0 1% 0;
 }
 
 .nav {
-    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.15);
+    z-index: 3;
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    position: fixed;
 }
 .nav.light {
     background-color: #fff;
@@ -21,7 +25,7 @@
     display: flex;
 }
 .navbar__list > li {
-    margin-left: 3%;
+    margin-left: 2vw;
     list-style: none;
 }
 
@@ -50,4 +54,191 @@
 .theme-icon {
     font-size: 1.5vw;
     cursor: pointer;
+}
+
+.navbar__list>li:active{
+    font-weight: bolder;
+}
+
+/* Mobile */
+
+.nav-container {
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
+}
+
+.mobile-navbar.dark{
+    background-color: #000;
+    transition: 0.5s all ease;
+}
+
+.mobile-navbar.light{
+    background-color: #fff;
+    transition: 0.5s all ease;
+}
+.mobile-navbar {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+.mobile-navbar .menu-items {
+    display: flex;
+}
+
+.mobile-navbar .nav-container li {
+    list-style: none;
+}
+
+.mobile-navbar .nav-container a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+}
+
+.mobile-navbar .nav-container a:hover {
+    font-weight: bolder;
+}
+
+.nav-container {
+    display: block;
+    position: relative;
+    height: 60px;
+}
+
+.nav-container .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 17px;
+    right: 5%;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.nav-container .hamburger-lines.dark .line {
+    background: #fff;
+}
+
+.nav-container .hamburger-lines.light .line{
+    background: #000;
+}
+
+
+
+.nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.mobile-navbar .menu-items {
+    padding-top: 120px;
+    height: 100vh;
+    width: 100%;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    /* margin-left: -20px;
+    padding-left: 50px; */
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+}
+
+.mobile-navbar.dark .menu-items{
+    background: #000;
+    transition: 0.5s all ease;
+}
+.mobile-navbar.light .menu-items{
+    background: #fff;
+    transition: 0.5s all ease;
+}
+
+
+.mobile-navbar .menu-items li {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.mobile-navbar.dark .menu-items li a{
+    color: #fff
+}
+
+.mobile-navbar.light .menu-items li a{
+    color: #000
+}
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    z-index: 2;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .burger-menu .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .burger-menu  .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .burger-menu .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+
+
+.burger-menu{
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 600px)  {
+    .theme-icon{
+        font-size: 6vw;
+    }
 }
