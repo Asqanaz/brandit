@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/brandit/static/css/main.2f16f4f3.css",
-    "main.js": "/brandit/static/js/main.514cf813.js",
+    "main.css": "/brandit/static/css/main.ad097889.css",
+    "main.js": "/brandit/static/js/main.f4c3ecae.js",
     "static/media/grid1.png": "/brandit/static/media/grid1.12eaebb5dc23ab4c6bff.png",
     "static/media/grid4.png": "/brandit/static/media/grid4.221b4377483da4748579.png",
     "static/media/grid6.png": "/brandit/static/media/grid6.5229b28d657560ee3d8b.png",
@@ -78,11 +78,11 @@
     "static/media/apostrof2.svg": "/brandit/static/media/apostrof2.18848aef30b1f057c9978d8a7ff56739.svg",
     "static/media/apostrof.svg": "/brandit/static/media/apostrof.4b96a592cc4cba63dbf3826d897b9ba8.svg",
     "index.html": "/brandit/index.html",
-    "main.2f16f4f3.css.map": "/brandit/static/css/main.2f16f4f3.css.map",
-    "main.514cf813.js.map": "/brandit/static/js/main.514cf813.js.map"
+    "main.ad097889.css.map": "/brandit/static/css/main.ad097889.css.map",
+    "main.f4c3ecae.js.map": "/brandit/static/js/main.f4c3ecae.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f16f4f3.css",
-    "static/js/main.514cf813.js"
+    "static/css/main.ad097889.css",
+    "static/js/main.f4c3ecae.js"
   ]
 }
