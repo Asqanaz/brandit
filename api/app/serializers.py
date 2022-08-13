@@ -32,3 +32,8 @@ class PriceOfferSerializer(serializers.ModelSerializer):
     class Meta:
         model = PriceOffer
         fields = '__all__'
+
+class ScheduleACallSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ScheduleACall
+        fields = '__all__'

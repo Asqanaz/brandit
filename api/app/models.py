@@ -50,3 +50,15 @@ class PriceOffer(models.Model):
 
     def __str__(self):
         return self.company_name
+
+class ScheduleACall(models.Model):
+    project_type = models.ForeignKey(to=ProjectType, on_delete=models.CASCADE, default='', to_field='title')
+    firstname = models.CharField(blank=True, max_length=50)
+    surname = models.CharField(blank=True, max_length=50)
+    email = models.CharField(blank=True, max_length=50)
+    phone = models.CharField(blank=True, max_length=50)
+    date = models.DateField()
+    time = models.TimeField(auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return self.email

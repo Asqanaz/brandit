@@ -68,3 +68,14 @@ class PriceOfferList(generics.ListCreateAPIView):
 class PriceOfferDetail(generics.RetrieveAPIView):
     queryset = PriceOffer.objects.all()
     serializer_class = PriceOfferSerializer
+
+class ScheduleACallList(generics.ListCreateAPIView):
+    queryset = ScheduleACall.objects.all()
+    serializer_class = ScheduleACallSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class ScheduleACallDetail(generics.RetrieveAPIView):
+    queryset = ScheduleACall.objects.all()
+    serializer_class = ScheduleACallSerializer
