@@ -46,3 +46,25 @@ class WhatOurClientsSayList(generics.ListCreateAPIView):
 class WhatOurClientsSayDetail(generics.RetrieveAPIView):
     queryset = WhatOurClientsSay.objects.all()
     serializer_class = WhatOurClientsSaySerializer
+
+class ContactUsList(generics.ListCreateAPIView):
+    queryset = ContactUs.objects.all()
+    serializer_class = ContactUsSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class ContactUsDetail(generics.RetrieveAPIView):
+    queryset = ContactUs.objects.all()
+    serializer_class = ContactUsSerializer
+
+class PriceOfferList(generics.ListCreateAPIView):
+    queryset = PriceOffer.objects.all()
+    serializer_class = PriceOfferSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class PriceOfferDetail(generics.RetrieveAPIView):
+    queryset = PriceOffer.objects.all()
+    serializer_class = PriceOfferSerializer

@@ -22,3 +22,13 @@ class WhatOurClientsSaySerializer(serializers.ModelSerializer):
     class Meta:
         model = WhatOurClientsSay
         fields = '__all__'
+
+class ContactUsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactUs
+        fields = '__all__'
+
+class PriceOfferSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PriceOffer
+        fields = '__all__'

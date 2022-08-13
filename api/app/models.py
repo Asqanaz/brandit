@@ -29,3 +29,24 @@ class WhatOurClientsSay(models.Model):
 
     def __str__(self):
         return self.username
+
+class ContactUs(models.Model):
+    name = models.CharField(blank=True, max_length=50)
+    email = models.CharField(blank=True, max_length=50) 
+    message = models.TextField(default='')  
+
+    def __str__(self):
+        return self.email
+
+class PriceOffer(models.Model):
+    project_type = models.ForeignKey(to=ProjectType, on_delete=models.CASCADE, default='', to_field='title')
+    company_name = models.CharField(blank=True, max_length=50)
+    about_project = models.TextField(default='')
+    file = models.FileField(blank=True, upload_to='project-files/price-offer')
+    firstname = models.CharField(blank=True, max_length=50)
+    surname = models.CharField(blank=True, max_length=50)
+    email = models.CharField(blank=True, max_length=50)
+    phone = models.CharField(blank=True, max_length=50)
+
+    def __str__(self):
+        return self.company_name
