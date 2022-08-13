@@ -7,3 +7,4 @@ admin.site.site_title = 'Brandit Administration'
 admin.site.register(Portfolio)
 admin.site.register(ProjectType)
 admin.site.register(ProjectDesign)
+admin.site.register(WhatOurClientsSay)

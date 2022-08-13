@@ -17,3 +17,8 @@ class ProjectTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectType
         fields = '__all__'
+
+class WhatOurClientsSaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhatOurClientsSay
+        fields = '__all__'

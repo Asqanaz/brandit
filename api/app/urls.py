@@ -7,6 +7,7 @@ urlpatterns = [
     path('portfolio-list/', views.PortfolioList.as_view()),
     path('project-type-list/', views.ProjectTypeList.as_view()),
     path('project-design-list/', views.ProjectDesignList.as_view()),
+    path('what-our-clients-say-list/', views.WhatOurClientsSayList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

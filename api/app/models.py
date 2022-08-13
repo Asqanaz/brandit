@@ -21,3 +21,11 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.title
+
+class WhatOurClientsSay(models.Model):
+    description = models.TextField(default='')
+    image = models.FileField(blank=True, upload_to='images/what-our-clients-say')
+    username = models.CharField(blank=True, max_length=50) 
+
+    def __str__(self):
+        return self.username

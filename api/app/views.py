@@ -35,3 +35,14 @@ class ProjectDesignList(generics.ListCreateAPIView):
 class ProjectDesignDetail(generics.RetrieveAPIView):
     queryset = ProjectDesign.objects.all()
     serializer_class = ProjectDesignSerializer
+
+class WhatOurClientsSayList(generics.ListCreateAPIView):
+    queryset = WhatOurClientsSay.objects.all()
+    serializer_class = WhatOurClientsSaySerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class WhatOurClientsSayDetail(generics.RetrieveAPIView):
+    queryset = WhatOurClientsSay.objects.all()
+    serializer_class = WhatOurClientsSaySerializer
