@@ -33,20 +33,14 @@ import form_image from "../../assets/images/form-image.png"
 import {Carousel} from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
-const Home = ({ theme, lang, width }) => {
+const Home = ({ theme, lang, screen }) => {
     const ref = useRef()
     const [hoveredRef, isHovered] = useHover()
 
-    const widthCondition = width >= 600
+    const widthCondition = screen >= 600
 
-    const settings = {
-        dots: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
     return (
-        <div className={`app ${theme}`}>
+        <>
             <section>
                 <div className="header container">
                     <div className="content-box">
@@ -314,7 +308,7 @@ const Home = ({ theme, lang, width }) => {
                                     </div>
                                 </>
                             ) : (
-                                <Carousel showThumbs = {false} showStatus = {false}>
+                                <Carousel showThumbs = {false} showStatus = {false} width = "350">
                                     <div className="item-client">
                                         <img
                                             src={apostrof}
@@ -521,7 +515,7 @@ const Home = ({ theme, lang, width }) => {
                                 </div>
                             </div>
                         ) : (
-                            <Carousel showThumbs = {false} showStatus = {false} showIndicators = {false}>
+                            <Carousel showThumbs = {false} showStatus = {false} showIndicators = {false} w>
                                 <div className="values-items-container">
                                     <img
                                         src={values_icon1}
@@ -658,7 +652,7 @@ const Home = ({ theme, lang, width }) => {
                     </div>
                 </section>
             </section>
-        </div>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-/* @keyframes home-animation-right {
+@keyframes home-animation-right {
     from {
         margin-top: -95%;
     }
@@ -21,14 +21,8 @@
     to {
         margin-top: -100%;
     }
-} */
-.app.dark {
-    background: #000;
 }
 
-.app.light {
-    background: #fff;
-}
 
 .container {
     width: 90vw;
@@ -37,7 +31,6 @@
 }
 
 .header.container {
-    padding-top: 150px;
     flex-direction: row;
     height: 100vh;
 }
