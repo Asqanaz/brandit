@@ -1,0 +1,43 @@
+.service.container{
+    flex-direction: column;
+}
+
+.service-item-container{
+    display: flex;
+
+}
+
+.service-item{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: #1E1E1E;
+    padding: 25px;
+}
+
+
+.service-upper-col .service-item:first-child{
+    margin: 0;
+
+}
+
+.service-items-container .service-upper-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.service-list{
+    margin-left: 7%;
+}
+
+.service-title{
+    font-size: 3.5vw;
+}
+
+.service-text, .service-list>li{
+    font-size: 1.5vw;
+}

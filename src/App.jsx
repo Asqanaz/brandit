@@ -10,6 +10,7 @@ import Navbar from "./common/navbar/Navbar"
 import Footer from "./common/footer/Footer"
 import Portfolio from "./components/portfolio/Portfolio"
 import About from "./components/about/About"
+import Service from "./components/service/Service"
 const App = () => {
     const [windowWidth, setWindowWidth] = useState(window.screen.width)
     useEffect(() => {
@@ -50,7 +51,7 @@ const App = () => {
                             />
                         }></Route>
                     <Route path="/about" element={<About theme = {theme} lang = {lang} screen = {windowWidth}/>}></Route>
-                    <Route path="/service" element={<></>}></Route>
+                    <Route path="/service" element={<Service theme = {theme} lang = {lang} screen = {windowWidth}/>}></Route>
                     <Route path="/contact" element={<></>}></Route>
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
