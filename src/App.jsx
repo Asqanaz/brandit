@@ -5,9 +5,10 @@ import {
     Route,
     Navigate
 } from "react-router-dom"
-import Home from "./components/Home"
+import Home from "./components/home/Home"
 import Navbar from "./common/navbar/Navbar"
 import Footer from "./common/footer/Footer"
+import Portfolio from "./components/portfolio/Portfolio"
 const App = () => {
 
     const [windowWidth, setWindowWidth] = useState(window.screen.width)
@@ -21,6 +22,7 @@ const App = () => {
     const [lang, setLang] = useState("En")
     return (
         <Router>
+            {/* <Portfolio/> */}
             <Navbar
                 theme={theme}
                 setTheme={setTheme}
@@ -31,9 +33,9 @@ const App = () => {
             <Routes>
                 <Route
                     path="/"
-                    element={<Home theme={theme} lang={lang} />}>
+                    element={<Home theme={theme} lang={lang} width = {windowWidth}/>}>
                 </Route>
-                <Route path="/portfolio" element={<></>}></Route>
+                <Route path="/portfolio" element={<Portfolio/>}></Route>
                 <Route path="/about" element={<></>}></Route>
                 <Route path="/service" element={<></>}></Route>
                 <Route path="/contact" element={<></>}></Route>

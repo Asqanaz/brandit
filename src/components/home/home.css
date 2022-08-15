@@ -1,0 +1,503 @@
+/* @keyframes home-animation-right {
+    from {
+        margin-top: -95%;
+    }
+
+    50% {
+        margin-top: 5%;
+    }
+    to {
+        margin-top: -95%;
+    }
+}
+@keyframes home-animation-left {
+    from {
+        margin-top: -100%;
+    }
+
+    50% {
+        margin-top: 0;
+    }
+    to {
+        margin-top: -100%;
+    }
+} */
+.app.dark {
+    background: #000;
+}
+
+.app.light {
+    background: #fff;
+}
+
+.container {
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+}
+
+.header.container {
+    padding-top: 150px;
+    flex-direction: row;
+    height: 100vh;
+}
+.content-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.button {
+    text-transform: capitalize;
+    border-radius: 10px;
+    background: #6321f9;
+    padding: 2.5% 6%;
+    margin-top: 7%;
+}
+
+.content-box__title {
+    font-size: 4.5vw;
+}
+
+.content-box__text {
+    font-size: 1.8vw;
+    margin-top: 1%;
+}
+
+.image-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.right-column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-column {
+    width: 50%;
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container img{
+    width: 100%;
+    height: 100%;
+    margin-top: 2%;
+}
+
+.right-column img:first-child {
+    margin-top: 120px;
+    animation: home-animation-right infinite;
+    animation-duration: 10s;
+}
+.left-column img:first-child {
+    animation: home-animation-left infinite;
+    animation-duration: 10s;
+}
+
+.section.container {
+    margin-top: 5%;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 3vw;
+}
+
+.text {
+    font-size: 1.5vw;
+    margin-bottom: 5%;
+}
+.items-container {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.background-service {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.item {
+    width: 32%;
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.item span{
+    margin-top: 21%;
+}
+
+.first {
+    background: url("../../assets/images/service1.png") no-repeat;
+    background-size: cover;
+}
+.second {
+    background: url("../../assets/images/service2.png") no-repeat;
+    background-size: cover;
+}
+.third {
+    background: url("../../assets/images/service3.png") no-repeat;
+    background-size: cover;
+}
+
+.service-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3vw;
+    text-align: center;
+    color: #fff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "sidebar sidebar main main right right"
+        "sidebar sidebar footer footer footer footer"
+        "bottom bottom bottom2 bottom2 bottom3 bottom3";
+    gap: 10px;
+}
+
+.grid-container .grid-items-images{
+    width: 100%;
+    height: 100%;
+}
+
+.grid-container .grid-items {
+    grid-area: sidebar;
+}
+
+.grid-items1{
+    grid-area: sidebar;
+}
+
+.grid-items2 {
+    grid-area: main;
+}
+
+.grid-items3 {
+    grid-area: right;
+}
+.grid-items4 {
+    grid-area: footer;
+}
+.grid-items5 {
+    grid-area: bottom;
+}
+.grid-items6 {
+    grid-area: bottom2;
+}
+.grid-items7 {
+    grid-area: bottom3;
+}
+
+.view {
+    padding: 0;
+    width: 11rem;
+    height: 3rem;
+    align-self: center;
+    margin-top: 2%;
+}
+
+.item-client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #6321f9;
+    position: relative;
+    flex-direction: column;
+    padding: 2% 4% 2% 4%;
+    flex-basis: 23%;
+}
+
+.apostrof {
+    position: absolute;
+    width: 10%;
+}
+
+.apostrof.left {
+    right: 5px;
+    bottom: 5px;
+}
+
+.apostrof.right {
+    left: 5px;
+    top: 5px;
+}
+
+.for-avatar{
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 50%;
+    background: url('../../assets/images/avatar1.png') no-repeat center;
+    background-size: cover;
+}
+
+.comment{
+    margin-top: 3%;
+    color: #fff;
+    font-size: 1.3vw;
+}
+.user-part{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+.user-info span{
+    margin: 0;
+}
+.user-name{
+    font-size: 1.3vw;
+    color: #fff
+}
+
+.user-login{
+    font-size: 1.1vw;
+    color: #fff
+}
+
+.values-items-container{
+    width: 25%;
+    padding-left: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.values-items-container:nth-child(n+4){
+    margin-top: 5%;
+}
+
+
+.values-container{
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.values-icons{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15%;
+}
+
+.values-title{
+    font-size: 1.4vw;
+}
+
+.values-text{
+    font-size: 1vw;
+}
+
+.form-box{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form input{
+    outline: 0;
+    margin-top: 5%;
+    width: 100%;
+    color: #fff;
+    border: 0;
+    padding: 1%;
+    padding-left: 0;
+    background-color: transparent;
+    border-bottom: 1px solid #fff;
+}
+
+.form-container{
+   width: 90vw;
+   margin: 5% auto;
+   display: flex;
+   flex-direction: row;
+}
+
+.image-box{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.image-box img{
+    width: 70%;
+}
+
+.form-button{
+    margin-top: 5%;
+    width: 20%;
+    height: 6vh;
+    background: #6321F9;
+    align-self: flex-end;
+    border-radius: 10px
+}
+
+
+.form-container.dark input{
+    color: #fff;
+}
+
+.form-container.light input{
+    color: #000;
+    border-bottom: 1px solid #000;
+
+}
+
+.carousel .control-dots .dot{
+    width: 13px !important;
+    height: 13px !important;
+    box-shadow: unset !important;
+    border: 1px solid #6321f8 !important;
+    background: black !important;
+    opacity: 1 !important;
+}
+
+.carousel .control-dots .dot.selected{
+    background-color: #6321f8 !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .header.container{
+        padding-top: 90px;
+        flex-direction: column;
+        height: 130vh;
+    }
+
+    .content-box{
+        width: 100%;
+    }
+    .content-box__title{
+        font-size: 6.5vw;
+    }
+    .content-box__text{
+        font-size: 3.5vw;
+    }
+
+    .content-box button{
+        margin-top: 4%;
+    }    
+    .image-container{
+        width: 100%;
+        flex-direction: column;
+        margin-top: 9%;
+        height: auto;
+    }
+
+    .image-container div{
+        width: 100%;
+        flex-direction: row;
+        height: 49%;
+    }
+
+    .image-container div img{
+        height: 100%;
+        margin-top: 0;
+        margin-left: 2%;
+    }
+
+    .image-container .left-column{
+        margin-top: 2%;
+    }  
+
+    .image-container div img:first-child{
+        margin-top: 0;
+    }
+
+    .title{
+        font-size: 4.5vw;
+    }
+
+    .text{
+        font-size: 3.2vw;
+    }
+
+    .items-container{
+        justify-content: unset;
+        overflow: hidden;
+    }
+
+    .items-container .item{
+        min-width: 200px;
+        margin-left: 5%;
+        transform: translateX(0%);
+    }
+
+    .items-container .item.first{
+        margin-left: -15%;
+    }
+
+    .grid-container{
+        grid-template-areas:
+        "main right"
+        "footer footer"
+        "sidebar bottom"
+        "bottom2 bottom3";
+        grid-template-rows: 23% 23% 23% 23%;
+        gap: 10px;
+    }
+
+
+
+    /* .carousel .slider-wrapper.axis-horizontal .slider .slide{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 25% !important;
+        height: 25vh !important
+    } 
+
+    .control-dots{
+        margin: 10px 0 0 0 !important;
+        align-self: flex-end !important;
+    }
+
+    .carousel .slider-wrapper.axis-horizontal{
+        height: 100% !important;
+    }
+
+    .slider{
+        height: 100%
+    } */
+    
+
+}

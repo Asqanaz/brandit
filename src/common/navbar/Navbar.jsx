@@ -14,7 +14,7 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     const navbarRef = useRef()
 
     window.matchMedia("(min-width: 600px").matches
-        ? (document.onmousemove = (e) => {
+        && (document.onmousemove = (e) => {
               if (e.clientY >= 380) {
                   navbarRef.current.style.top = -90 + 'px'
                   navbarRef.current.style.transform = 0.7 + "s"
@@ -23,7 +23,6 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                   navbarRef.current.style.transition = 0.7 + "s"
               }
           })
-        : null
     return (
         <>
             {screen > 600 ? (
