@@ -30,7 +30,7 @@ import values_icon4 from "../../assets/images/icon4.png"
 import values_icon5 from "../../assets/images/icon5.png"
 import values_icon6 from "../../assets/images/icon6.png"
 import form_image from "../../assets/images/form-image.png"
-import {Carousel} from 'react-responsive-carousel'
+import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Home = ({ theme, lang, screen }) => {
@@ -308,7 +308,10 @@ const Home = ({ theme, lang, screen }) => {
                                     </div>
                                 </>
                             ) : (
-                                <Carousel showThumbs = {false} showStatus = {false} width = "350">
+                                <Carousel
+                                    showThumbs={false}
+                                    showStatus={false}
+                                    width="350">
                                     <div className="item-client">
                                         <img
                                             src={apostrof}
@@ -515,7 +518,11 @@ const Home = ({ theme, lang, screen }) => {
                                 </div>
                             </div>
                         ) : (
-                            <Carousel showThumbs = {false} showStatus = {false} showIndicators = {false} w>
+                            <Carousel
+                                showThumbs={false}
+                                showStatus={false}
+                                showIndicators={false}
+                                w>
                                 <div className="values-items-container">
                                     <img
                                         src={values_icon1}
@@ -639,7 +646,7 @@ const Home = ({ theme, lang, screen }) => {
                                 <input
                                     type="text"
                                     placeholder="Message"
-                                    style={{ marginTop: 15 + "%" }}
+                                    className="message"
                                 />
                                 <button className="form-button">
                                     Send Message

@@ -2,9 +2,11 @@
     flex-direction: column;
 }
 
-.service-item-container{
+.service-items-container{
     display: flex;
-
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .service-item{
@@ -14,7 +16,7 @@
     justify-content: center;
     align-items: flex-start;
     background: #1E1E1E;
-    padding: 25px;
+    padding: 3%;
 }
 
 
@@ -29,15 +31,59 @@
     justify-content: space-between;
 }
 
-
-.service-list{
-    margin-left: 7%;
+.service-item .service-title{
+    font-size: 2.3vw;
+    line-height: 1em;
 }
 
-.service-title{
-    font-size: 3.5vw;
+.service-item.lower{
+    width: 100%;   
+    margin-top: 5%;
+    padding-bottom: 9.6%;
 }
 
-.service-text, .service-list>li{
-    font-size: 1.5vw;
+.service-item.lower .service-text{
+    margin-top: 1.3%;
+}
+
+.service-item .service-text{
+    /* padding-right: 5vw; */
+    margin-top: 3%;
+    font-size: 1.8vw;
+    width: 80%;
+}
+
+@media (max-width: 600px){
+    .service-items-container{
+        width: 100%;
+        margin: 0;
+    }
+
+    .service-items-container .service-upper-col{
+        flex-direction: column;
+    }
+
+    .service-items-container .service-item{
+        width: 100%;
+        margin-top: 5%;
+        padding: 5% 2%;
+    }
+
+    .service-item.lower{
+        margin-top: 5%;
+    }
+
+    .service-item .service-title{
+        font-size: 5.7vw;
+    }
+
+    .service-item .service-text{
+        font-size: 4.1vw;
+        width: 100%;
+    }
+
+    .service.container .title{
+        font-size: 6vw;
+    }
+
 }

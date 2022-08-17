@@ -31,8 +31,14 @@
     .about.container .image-box{
         width: 100%
     }
+    .about.container .image-box img{
+        width: 100%;
+        height: 100%;
+    }
 
     .about.container{
         flex-direction: column;   
     }
+
+
 }

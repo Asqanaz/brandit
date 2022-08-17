@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import "./navbar.css"
 import logo_dark from "../../assets/images/logo_dark.svg"
 import logo_light from "../../assets/images/logo_light.svg"
@@ -28,9 +28,28 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
               }
           })
 
+          const bolderFont = (e) => {
+            e.target.focus()
+          }
+
+        // const li = document.querySelectorAll('li')
+        // useEffect(() => {
+        //     li.forEach(item => 
+        //         item.onClick = (e) =>{
+        //             console.log(e.target)
+        //             // item.baseURI.match(window.location.href) ? item.style.fontWeight = "bolder" : item.style.fontWeight = "normal"
+        //         }
+        //         // console.log(item.baseURI)
+        //         )
+        
+        // }, [window.location.href])
+        
+        // console.log(window.location.href)
+
+          
     return (
         <>
-        {screen > 600 ? (
+        {screen >= 600 ? (
                 <div style={{height: navbarRef.current?.clientHeight}}>
                 <nav className={`nav ${theme}`} ref={navbarRef} >
                     <div className={`navbar ${theme}`}>
@@ -43,16 +62,16 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                         </Link>
                         <ul className={`navbar__list ${theme}`}>
                             <li>
-                                <Link to="/portfolio">Portfolio</Link>
+                                <Link to="/portfolio" onClick = {bolderFont}>Portfolio</Link>
                             </li>
                             <li>
-                                <Link to="/about">About</Link>
+                                <Link to="/about" onClick = {bolderFont}>About</Link>
                             </li>
                             <li>
-                                <Link to="/service">Service</Link>
+                                <Link to="/service" onClick = {bolderFont}>Service</Link>
                             </li>
                             <li>
-                                <Link to="/contact">Contact Us</Link>
+                                <Link to="/contact" onClick = {bolderFont}>Contact Us</Link>
                             </li>
                         </ul>
                         <div className="navbar__settings">

@@ -14,7 +14,7 @@
 }
 
 .nav {
-    position: fixed;
+    /* position: fixed; */
     z-index: 3;
     width: 100%;
     border-bottom: 2px solid rgba(255, 255, 255, 0.15);
@@ -62,7 +62,11 @@
     cursor: pointer;
 }
 
-.navbar__list > li:active {
+.navbar__list > li:focus {
+    font-weight: bolder;
+}
+
+a:focus{
     font-weight: bolder;
 }
 
@@ -84,7 +88,7 @@
     transition: 0.5s all ease;
 }
 .mobile-navbar {
-    position: fixed;
+    /* position: fixed; */
     z-index: 3;
     width: 100%;
 }

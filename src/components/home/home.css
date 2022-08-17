@@ -101,11 +101,11 @@
 }
 
 .title {
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .text {
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin-bottom: 5%;
 }
 .items-container {
@@ -335,6 +335,7 @@
     padding-left: 0;
     background-color: transparent;
     border-bottom: 1px solid #fff;
+    font-size: 1.5vw;
 }
 
 .form-container{
@@ -358,10 +359,11 @@
 .form-button{
     margin-top: 5%;
     width: 20%;
-    height: 6vh;
+    padding: 2% 0;
     background: #6321F9;
     align-self: flex-end;
-    border-radius: 10px
+    border-radius: 10px;
+    font-size: 1vw;
 }
 
 
@@ -388,6 +390,9 @@
     background-color: #6321f8 !important;
 }
 
+.message{
+    margin-top: 15%;    
+}
 
 @media only screen and (max-width: 600px) {
     .header.container{
@@ -400,7 +405,7 @@
         width: 100%;
     }
     .content-box__title{
-        font-size: 6.5vw;
+        font-size: 7.7vw;
     }
     .content-box__text{
         font-size: 3.5vw;
@@ -437,7 +442,7 @@
     }
 
     .title{
-        font-size: 4.5vw;
+        font-size: 6.5vw;
     }
 
     .text{
