@@ -12,6 +12,9 @@ import Portfolio from "./components/portfolio/Portfolio"
 import About from "./components/about/About"
 import Service from "./components/service/Service"
 import Contact from "./components/contact/Contact"
+import Start from "./components/start/Start"
+import PortfolioInfo from "./components/portfolio-info-page/PortfolioInfo"
+
 const App = () => {
     const [windowWidth, setWindowWidth] = useState(window.screen.width)
     useEffect(() => {
@@ -51,13 +54,55 @@ const App = () => {
                                 screen={windowWidth}
                             />
                         }></Route>
-                    <Route path="/about" element={<About theme = {theme} lang = {lang} screen = {windowWidth}/>}></Route>
-                    <Route path="/service" element={<Service theme = {theme} lang = {lang} screen = {windowWidth}/>}></Route>
-                    <Route path="/contact" element={<Contact theme = {theme} lang = {lang} screen = {windowWidth}/>}></Route>
+                    <Route
+                        path="/about"
+                        element={
+                            <About
+                                theme={theme}
+                                lang={lang}
+                                screen={windowWidth}
+                            />
+                        }></Route>
+                    <Route
+                        path="/service"
+                        element={
+                            <Service
+                                theme={theme}
+                                lang={lang}
+                                screen={windowWidth}
+                            />
+                        }></Route>
+                    <Route
+                        path="/contact"
+                        element={
+                            <Contact
+                                theme={theme}
+                                lang={lang}
+                                screen={windowWidth}
+                            />
+                        }></Route>
+                    <Route
+                        path="/start-a-project"
+                        element={
+                            <Start
+                                theme={theme}
+                                lang={lang}
+                                screen={windowWidth}
+                            />
+                        }></Route>
+                    <Route
+                        path="/portfolio-info"
+                        element={
+                            <PortfolioInfo
+                                theme={theme}
+                                lang={lang}
+                                screen={windowWidth}
+                            />
+                        }></Route>
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-                <Footer theme={theme} lang={lang} />
             </div>
+            <Footer theme={theme} lang={lang} />
         </Router>
     )
 }

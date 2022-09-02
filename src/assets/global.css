@@ -1,19 +1,21 @@
 @import url("./font/poppins.css");
 
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-*, *::after, *::before{
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     box-sizing: border-box;
 }
 
-* .dark{
+* .dark {
     transition: 0.3s all ease-in;
     color: #fff;
 }
@@ -23,12 +25,14 @@ body{
     color: #000;
 }
 
-a{
+a {
     text-decoration: none;
-    color: #fff
+    color: #fff;
 }
 
-button{
+button {
+    background: #6321f9;
+    border-radius: 10px;
     border: 0;
     color: #fff;
 }
@@ -41,5 +45,13 @@ button{
     background: #fff;
 }
 
+.app{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 
-
+@media (max-width: 600px){
+    .app{
+        padding-top: 15%;
+    }
+}

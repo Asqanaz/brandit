@@ -22,6 +22,10 @@
     position: relative;
 }
 
+.form .message{
+    margin-top: 15%;
+}
+
 @media (max-width: 600px){
 
     .contact.text{

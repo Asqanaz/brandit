@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useHover } from "../../hooks/useHover"
+import { Link } from "react-router-dom"
 import "./home.css"
 import bg1 from "../../assets/images/bg_div1.png"
 import bg2 from "../../assets/images/bg_div2.png"
@@ -54,7 +55,9 @@ const Home = ({ theme, lang, screen }) => {
                         <span className="content-box__text">
                             Let's Get Started
                         </span>
-                        <button className="button">start a project</button>
+                        <Link to="/start-a-project">
+                            <button className="button">start a project</button>
+                        </Link>
                     </div>
                     <div className="image-container">
                         <div className="right-column">

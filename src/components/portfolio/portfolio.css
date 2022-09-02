@@ -61,3 +61,8 @@
 .lower-col .portfolio-item{
     margin-left: 2%;
 }
+
+.middle{
+    /* width: 100%; */
+    margin: 1% 0;
+}

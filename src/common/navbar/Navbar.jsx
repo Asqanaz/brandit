@@ -18,11 +18,11 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
         && (document.onmousemove = (e) => {
               if (e.clientY >= 380) {
                 //   navbarRef.current.style.transform = "translateY(-90px)"
-                navbarRef.current.style.marginTop = -90 + 'px'
+                navbarRef.current.style.top = -90 + 'px'
                   navbarRef.current.style.transition = 0.7 + "s"
               } else {
                 //   navbarRef.current.style.transform = "translateY(0px)"
-                navbarRef.current.style.marginTop = 0
+                navbarRef.current.style.top = 0
 
                   navbarRef.current.style.transition = 0.7 + "s"
               }
@@ -50,7 +50,6 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     return (
         <>
         {screen >= 600 ? (
-                <div style={{height: navbarRef.current?.clientHeight}}>
                 <nav className={`nav ${theme}`} ref={navbarRef} >
                     <div className={`navbar ${theme}`}>
                         <Link to="/">
@@ -106,9 +105,8 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                         </div>
                     </div>
                 </nav>
-                </div>
             ) : (
-                <nav style={{height: mobile_navbarRef.current?.clientHeight}}>
+                <nav>
                     <div className={`mobile-navbar ${theme}`} ref = {mobile_navbarRef}>
                         <div className="nav-container">
                             <input

@@ -23,12 +23,10 @@ const Footer = ({theme, lang}) => {
                 <span className="contact">Contact Us</span>
             </div>
             <div className="info">
-                <AiTwotoneMail className="footer-info-icons"/><span className="mail">info@thebrandit.agency</span>
+                <span className="mail">info@thebrandit.agency</span>
                 <span className="line">|</span>
-                <BsFillTelephoneFill className="footer-info-icons"/>
                 <span className="phone">+374 33 97 00 96</span>
             </div>
-
             <span className="copyright">@2022 Brandit</span>
         </div>
     </footer>
