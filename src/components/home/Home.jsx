@@ -1,13 +1,9 @@
 import React, { useRef } from "react"
-import { useHover } from "../../hooks/useHover"
 import { Link } from "react-router-dom"
 import "./home.css"
-import bg1 from "../../assets/images/bg_div1.png"
-import bg2 from "../../assets/images/bg_div2.png"
-import bg3 from "../../assets/images/bg_div3.png"
-import bg4 from "../../assets/images/bg_div4.png"
-import bg5 from "../../assets/images/bg_div5.png"
-import bg6 from "../../assets/images/bg_div6.png"
+import hero1 from "../../assets/images/hero1.png"
+import hero2 from "../../assets/images/hero2.png"
+import hero3 from "../../assets/images/hero3.png"
 import grid1 from "../../assets/images/grid1.png"
 import grid2 from "../../assets/images/grid2.png"
 import grid3 from "../../assets/images/grid3.png"
@@ -31,26 +27,51 @@ import values_icon4 from "../../assets/images/icon4.png"
 import values_icon5 from "../../assets/images/icon5.png"
 import values_icon6 from "../../assets/images/icon6.png"
 import form_image from "../../assets/images/form-image.png"
+import { Children } from "react"
+import { useState } from "react"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Home = ({ theme, lang, screen }) => {
-    const ref = useRef()
-    const [hoveredRef, isHovered] = useHover()
-
+    const [currentDotDatas, setCurrentDotDatas] = useState({title: 'Brand identity and logo design', text: 'The first step for high quality brand is to have quality logo and design!', src: hero1})
     const widthCondition = screen >= 600
 
+    const heroObject = [
+        {
+            title: "Brand identity and logo design",
+            text: "The first step for high quality brand is to have quality logo and design!",
+            src: hero1
+        },
+        {
+            title: "Digital Marketing",
+            text: "We will take care of your marketing. Get a fame and new clients with us!",
+            src: hero2
+        },
+        {
+            title: "Packaging design",
+            text: "Have a unique packaging. Be the best in the market with us!",
+            src: hero3
+        }
+    ]
+
+    const dotHandler = (e) => {
+        setCurrentDotDatas({title: e.title, text: e.text, src: e.src})
+    }
+    
     return (
         <>
             <section>
                 <div className="header container">
+                    <div className="dot-container">
+                        {heroObject.map(item => 
+                            <span className={item.src === currentDotDatas.src ? 'dot selected' : 'dot'} onClick = {dotHandler.bind(this, item)}></span>)}
+                    </div>
                     <div className="content-box">
                         <h2 className="content-box__title">
-                            We make things look better.
+                            {currentDotDatas.title}
                         </h2>
                         <p className="content-box__text">
-                            We do unconventional brandings, websites and digital
-                            marketing.
+                            {currentDotDatas.title}
                         </p>
                         <span className="content-box__text">
                             Let's Get Started
@@ -60,16 +81,7 @@ const Home = ({ theme, lang, screen }) => {
                         </Link>
                     </div>
                     <div className="image-container">
-                        <div className="right-column">
-                            <img src={bg1} alt="" />
-                            <img src={bg2} alt="" />
-                            <img src={bg3} alt="" />
-                        </div>
-                        <div className="left-column">
-                            <img src={bg4} alt="" />
-                            <img src={bg5} alt="" />
-                            <img src={bg6} alt="" />
-                        </div>
+                        <img src={currentDotDatas.src} alt="" />
                     </div>
                 </div>
             </section>
@@ -99,113 +111,12 @@ const Home = ({ theme, lang, screen }) => {
                     <p className="text">
                         Some of the projects we have worked on
                     </p>
-                    <div className="grid-container">
-                        <div className="grid-items1" ref={ref}>
-                            {widthCondition ? (
-                                <img
-                                    src={grid1}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid1}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items2">
-                            {widthCondition ? (
-                                <img
-                                    src={grid2}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid2}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items3">
-                            {widthCondition ? (
-                                <img
-                                    src={grid3}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid3}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items4">
-                            {widthCondition ? (
-                                <img
-                                    src={grid4}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid4}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items5">
-                            {widthCondition ? (
-                                <img
-                                    src={grid5}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid5}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items6">
-                            {widthCondition ? (
-                                <img
-                                    src={grid6}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid6}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
-                        <div className="grid-items7">
-                            {widthCondition ? (
-                                <img
-                                    src={grid7}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            ) : (
-                                <img
-                                    src={mobile_grid7}
-                                    alt=""
-                                    className="grid-items-images"
-                                />
-                            )}
-                        </div>
+                    <div className="slide">
+                        <div className="row upper"></div>
+                        <div className="row middle"></div>
+                        <div className="row lower"></div>
                     </div>
+                    
                     <button className="button view">view more</button>
                 </div>
                 <section>

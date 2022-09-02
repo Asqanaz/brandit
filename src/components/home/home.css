@@ -31,9 +31,47 @@
 }
 
 .header.container {
+    position: relative;
     flex-direction: row;
     height: 100vh;
 }
+
+.dot-container{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.6px solid #6321F9;
+    background-color: transparent;
+    margin-top: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.dot.selected::before{
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    background-color: #6321F9;
+    width: 80%;
+    height: 80%;
+    top: 10.5%;
+    left: 10.5%;
+}
+
+/* .dot.selected{
+    padding: 1%;
+    background-color: #6321F9;
+} */
 .content-box {
     width: 50%;
     display: flex;
@@ -393,6 +431,7 @@
 .message{
     margin-top: 15%;    
 }
+
 
 @media only screen and (max-width: 600px) {
     .header.container{
