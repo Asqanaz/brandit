@@ -7,7 +7,11 @@ class ProjectType(models.Model):
         return self.title
 
 class ProjectDesign(models.Model):
+    title = models.CharField(blank=True, max_length=100)
     image = models.FileField(blank=True, upload_to='images/portfolio/project-design')
+
+    def __str__(self):
+        return self.title
 
 class Portfolio(models.Model):
     title = models.CharField(blank=True, max_length=100)
