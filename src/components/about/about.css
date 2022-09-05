@@ -40,5 +40,11 @@
         flex-direction: column;   
     }
 
+    .about-image{
+        margin-top: 2%;
+    }
 
+    .text{
+        font-size: 1rem;
+    }
 }

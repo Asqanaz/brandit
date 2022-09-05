@@ -50,6 +50,10 @@ button {
     padding-bottom: 5%;
 }
 
+#root{
+    background: #000;
+}
+
 @media (max-width: 600px){
     .app{
         padding-top: 15%;

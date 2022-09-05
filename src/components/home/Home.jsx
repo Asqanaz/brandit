@@ -4,36 +4,67 @@ import "./home.css"
 import hero1 from "../../assets/images/hero1.png"
 import hero2 from "../../assets/images/hero2.png"
 import hero3 from "../../assets/images/hero3.png"
-import grid1 from "../../assets/images/grid1.png"
-import grid2 from "../../assets/images/grid2.png"
-import grid3 from "../../assets/images/grid3.png"
-import grid4 from "../../assets/images/grid4.png"
-import grid5 from "../../assets/images/grid5.png"
-import grid6 from "../../assets/images/grid6.png"
-import grid7 from "../../assets/images/grid7.png"
-import mobile_grid1 from "../../assets/images/mobile_grid1.png"
-import mobile_grid2 from "../../assets/images/mobile_grid2.png"
-import mobile_grid3 from "../../assets/images/mobile_grid3.png"
-import mobile_grid4 from "../../assets/images/mobile_grid4.png"
-import mobile_grid5 from "../../assets/images/mobile_grid5.png"
-import mobile_grid6 from "../../assets/images/mobile_grid6.png"
-import mobile_grid7 from "../../assets/images/mobile_grid7.png"
+import projects1 from "../../assets/images/projects1.png"
+import projects2 from "../../assets/images/projects2.png"
+import projects3 from "../../assets/images/projects3.png"
+import projects4 from "../../assets/images/projects4.png"
+import projects5 from "../../assets/images/projects5.png"
+import projects6 from "../../assets/images/projects6.png"
+import projects7 from "../../assets/images/projects7.png"
+import projects8 from "../../assets/images/projects8.png"
+import projects9 from "../../assets/images/projects9.png"
+import projects10 from "../../assets/images/projects10.png"
+import projects11 from "../../assets/images/projects11.png"
+import projects12 from "../../assets/images/projects12.png"
 import apostrof from "../../assets/images/apostrof.svg"
 import apostrof2 from "../../assets/images/apostrof2.svg"
+import form_image from "../../assets/images/form-image.png"
+import left_arrow from "../../assets/images/left-arrow.svg"
+import right_arrow from "../../assets/images/right-arrow.svg"
+import { useState } from "react"
+import {
+    commentObjects1,
+    commentObjects2,
+    commentObjects3
+} from "./datas/commentDatas"
+import {
+    valuesObject1,
+    valuesObject2,
+    valuesObject3,
+    valuesObject4,
+    valuesObject5,
+    valuesObject6
+} from "./datas/valuesDatas"
+import light_right_arrow from "../../assets/images/light_right-arrow.svg"
+import light_left_arrow from "../../assets/images/light_left-arrow.svg"
+import dot from "../../assets/images/dot.svg"
+import dot_selected from "../../assets/images/dot-selected.svg"
 import values_icon1 from "../../assets/images/icon1.png"
 import values_icon2 from "../../assets/images/icon2.png"
 import values_icon3 from "../../assets/images/icon3.png"
 import values_icon4 from "../../assets/images/icon4.png"
 import values_icon5 from "../../assets/images/icon5.png"
 import values_icon6 from "../../assets/images/icon6.png"
-import form_image from "../../assets/images/form-image.png"
-import { Children } from "react"
-import { useState } from "react"
-import { Carousel } from "react-responsive-carousel"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Home = ({ theme, lang, screen }) => {
-    const [currentDotDatas, setCurrentDotDatas] = useState({title: 'Brand identity and logo design', text: 'The first step for high quality brand is to have quality logo and design!', src: hero1})
+    const commentDatas = [commentObjects1, commentObjects2, commentObjects3]
+    const valuesDatas = [
+        valuesObject1,
+        valuesObject2,
+        valuesObject3,
+        valuesObject4,
+        valuesObject5,
+        valuesObject6
+    ]
+
+    const [currentDotDatas, setCurrentDotDatas] = useState({
+        title: "Brand identity and logo design",
+        text: "The first step for high quality brand is to have quality logo and design!",
+        src: hero1
+    })
+    const [currentCommentDatas, setCurrentCommentDatas] =
+        useState(commentObjects1)
+
     const widthCondition = screen >= 600
 
     const heroObject = [
@@ -54,24 +85,61 @@ const Home = ({ theme, lang, screen }) => {
         }
     ]
 
+    const [currentValuesDatas, setCurrentValuesDatas] = useState(valuesObject1)
+
     const dotHandler = (e) => {
-        setCurrentDotDatas({title: e.title, text: e.text, src: e.src})
+        setCurrentDotDatas({ title: e.title, text: e.text, src: e.src })
     }
-    
+
+    const leftArrowHandler = (initialDatas, currentDatas, setCurrentDatas) => {
+        for (let i = 0; i < initialDatas.length; i++) {
+            if (initialDatas[i] == currentDatas) {
+                if (i == 0) {
+                    setCurrentDatas(initialDatas[initialDatas.length - 1])
+                } else {
+                    setCurrentDatas(initialDatas[i - 1])
+                }
+            }
+        }
+    }
+
+    const rightArrowHandler = (initialDatas, currentDatas, setCurrentDatas) => {
+        for (let i = 0; i < initialDatas.length; i++) {
+            if (initialDatas[i] == currentDatas) {
+                if (i == initialDatas.length - 1) {
+                    setCurrentDatas(initialDatas[0])
+                } else {
+                    setCurrentDatas(initialDatas[i + 1])
+                }
+            }
+        }
+    }
+
+    console.log(currentCommentDatas)
     return (
         <>
             <section>
                 <div className="header container">
                     <div className="dot-container">
-                        {heroObject.map(item => 
-                            <span className={item.src === currentDotDatas.src ? 'dot selected' : 'dot'} onClick = {dotHandler.bind(this, item)}></span>)}
+                        {heroObject.map((item, index) => (
+                            <img
+                                key={index}
+                                className="dot"
+                                src={
+                                    item.src == currentDotDatas.src
+                                        ? dot_selected
+                                        : dot
+                                }
+                                onClick={dotHandler.bind(this, item)}
+                            />
+                        ))}
                     </div>
                     <div className="content-box">
                         <h2 className="content-box__title">
                             {currentDotDatas.title}
                         </h2>
                         <p className="content-box__text">
-                            {currentDotDatas.title}
+                            {currentDotDatas.text}
                         </p>
                         <span className="content-box__text">
                             Let's Get Started
@@ -112,11 +180,32 @@ const Home = ({ theme, lang, screen }) => {
                         Some of the projects we have worked on
                     </p>
                     <div className="slide">
-                        <div className="row upper"></div>
-                        <div className="row middle"></div>
-                        <div className="row lower"></div>
+                        <div className="row upper">
+                            <img src={projects1} alt="" />
+                            <img src={projects2} alt="" />
+                            <img src={projects3} alt="" />
+                            <img src={projects4} alt="" />
+                            <img src={projects5} alt="" />
+                            <img src={projects6} alt="" />
+                        </div>
+                        <div className="row middle">
+                            <img src={projects7} alt="" />
+                            <img src={projects8} alt="" />
+                            <img src={projects9} alt="" />
+                            <img src={projects10} alt="" />
+                            <img src={projects11} alt="" />
+                            <img src={projects12} alt="" />
+                        </div>
+                        <div className="row lower">
+                            <img src={projects1} alt="" />
+                            <img src={projects2} alt="" />
+                            <img src={projects3} alt="" />
+                            <img src={projects4} alt="" />
+                            <img src={projects5} alt="" />
+                            <img src={projects6} alt="" />
+                        </div>
                     </div>
-                    
+
                     <button className="button view">view more</button>
                 </div>
                 <section>
@@ -222,11 +311,40 @@ const Home = ({ theme, lang, screen }) => {
                                     </div>
                                 </>
                             ) : (
-                                <Carousel
-                                    showThumbs={false}
-                                    showStatus={false}
-                                    width="350">
-                                    <div className="item-client">
+                                <>
+                                    <img
+                                        src={
+                                            theme === "dark"
+                                                ? left_arrow
+                                                : light_left_arrow
+                                        }
+                                        alt=""
+                                        className="left-arrow"
+                                        onClick={() =>
+                                            leftArrowHandler(
+                                                commentDatas,
+                                                currentCommentDatas,
+                                                setCurrentCommentDatas
+                                            )
+                                        }
+                                    />
+                                    <img
+                                        src={
+                                            theme === "dark"
+                                                ? right_arrow
+                                                : light_right_arrow
+                                        }
+                                        alt=""
+                                        className="right-arrow"
+                                        onClick={() =>
+                                            rightArrowHandler(
+                                                commentDatas,
+                                                currentCommentDatas,
+                                                setCurrentCommentDatas
+                                            )
+                                        }
+                                    />
+                                    <div className="item-client carousel">
                                         <img
                                             src={apostrof}
                                             alt=""
@@ -238,85 +356,30 @@ const Home = ({ theme, lang, screen }) => {
                                             className="apostrof right"
                                         />
                                         <p className="comment">
-                                            “I don’t know in real-time where the
-                                            money is spent, and I don’t have to
-                                            lend out the company’s credit card
-                                            anymore. What a releif!”
+                                            {currentCommentDatas.comment}
                                         </p>
-
                                         <div className="user-part">
-                                            <div className="for-avatar"></div>
+                                            <div
+                                                className="for-avatar"
+                                                style={{
+                                                    background: `url(${currentCommentDatas.avatar_img}) no-repeat center`,
+                                                    backgroundSize: "cover"
+                                                }}></div>
                                             <div className="user-info">
                                                 <span className="user-name">
-                                                    Denny Hilguston
+                                                    {
+                                                        currentCommentDatas.user_name
+                                                    }
                                                 </span>
                                                 <span className="user-login">
-                                                    @denny_hill
+                                                    {
+                                                        currentCommentDatas.user_login
+                                                    }
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="item-client">
-                                        <img
-                                            src={apostrof}
-                                            alt=""
-                                            className="apostrof left"
-                                        />
-                                        <img
-                                            src={apostrof2}
-                                            alt=""
-                                            className="apostrof right"
-                                        />
-                                        <p className="comment">
-                                            “I don’t know in real-time where the
-                                            money is spent, and I don’t have to
-                                            lend out the company’s credit card
-                                            anymore. What a releif!”
-                                        </p>
-
-                                        <div className="user-part">
-                                            <div className="for-avatar"></div>
-                                            <div className="user-info">
-                                                <span className="user-name">
-                                                    Denny Hilguston
-                                                </span>
-                                                <span className="user-login">
-                                                    @denny_hill
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-client">
-                                        <img
-                                            src={apostrof}
-                                            alt=""
-                                            className="apostrof left"
-                                        />
-                                        <img
-                                            src={apostrof2}
-                                            alt=""
-                                            className="apostrof right"
-                                        />
-                                        <p className="comment">
-                                            “I don’t know in real-time where the
-                                            money is spent, and I don’t have to
-                                            lend out the company’s credit card
-                                            anymore. What a releif!”
-                                        </p>
-
-                                        <div className="user-part">
-                                            <div className="for-avatar"></div>
-                                            <div className="user-info">
-                                                <span className="user-name">
-                                                    Denny Hilguston
-                                                </span>
-                                                <span className="user-login">
-                                                    @denny_hill
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Carousel>
+                                </>
                             )}
                         </div>
                     </div>
@@ -324,225 +387,168 @@ const Home = ({ theme, lang, screen }) => {
                 <section>
                     <div className="section container">
                         <h2 className="title">Our Values</h2>
-                        {widthCondition ? (
-                            <div className="values-container">
-                                <div className="values-items-container">
+
+                        <div className="values-container">
+                            {widthCondition ? (
+                                <>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon1}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">GROWTH</h3>
+                                        <p className="values-text">
+                                            This is what we will bring to your
+                                            business. More fame between your
+                                            individual type of businesses. More
+                                            clients and which by itself means
+                                            more sales. Our clients have
+                                            experienced it just after months.
+                                            Making your business grow also.
+                                        </p>
+                                    </div>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon2}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">
+                                            STRATEGY
+                                        </h3>
+                                        <p className="values-text">
+                                            With plenty of experience from our
+                                            work and in-depth analysis of more
+                                            advanced agencies, we process the
+                                            most effective method to grow your
+                                            business in a short time. Many
+                                            companies collapse with no strategy.
+                                        </p>
+                                    </div>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon3}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">
+                                            TRANSPARENCY
+                                        </h3>
+                                        <p className="values-text">
+                                            We are open, honest, and straight
+                                            forward to our clients. This is how
+                                            we gain trust, and this is how we
+                                            keep our agency's name clear. In
+                                            return, we get the same clear and
+                                            friendly relationships. Whatever we
+                                            do, this is the most valuable thing
+                                            for us.
+                                        </p>
+                                    </div>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon4}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">TRUST</h3>
+                                        <p className="values-text">
+                                            Trust is one of the most meaningful
+                                            things in our job. By growing up
+                                            with our partners we have gained
+                                            irreplaceable things such as
+                                            experience and trust. And this gives
+                                            us the most value.
+                                        </p>
+                                    </div>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon5}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">
+                                            UNIQUENESS
+                                        </h3>
+                                        <p className="values-text">
+                                            Most of our clients are not the only
+                                            ones in their sphere. So we work on
+                                            making them unique and creative,
+                                            separating them from the gray crowd.
+                                            From the plenty of fish, you will
+                                            notice at first the one that shines
+                                            the best with its uniqueness.
+                                        </p>
+                                    </div>
+                                    <div className="values-items-container">
+                                        <img
+                                            src={values_icon6}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">
+                                            RESPONSIBILITY
+                                        </h3>
+                                        <p className="values-text">
+                                            Our team consists of professional
+                                            specialists who's duty is just to
+                                            make our clients pleased.
+                                            Discipline, communication and active
+                                            rest, this is how our team works on
+                                            projects. So easily rely on us and
+                                            don’t care about deadlines.
+                                        </p>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
                                     <img
-                                        src={values_icon1}
+                                        src={
+                                            theme === "dark"
+                                                ? left_arrow
+                                                : light_left_arrow
+                                        }
                                         alt=""
-                                        className="values-icons"
+                                        className="left-arrow"
+                                        onClick={() =>
+                                            leftArrowHandler(
+                                                valuesDatas,
+                                                currentValuesDatas,
+                                                setCurrentValuesDatas
+                                            )
+                                        }
                                     />
-                                    <h3 className="values-title">GROWTH</h3>
-                                    <p className="values-text">
-                                        This is what we will bring to your
-                                        business. More fame between your
-                                        individual type of businesses. More
-                                        clients and which by itself means more
-                                        sales. Our clients have experienced it
-                                        just after months. Making your business
-                                        grow also.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
                                     <img
-                                        src={values_icon2}
+                                        src={
+                                            theme === "dark"
+                                                ? right_arrow
+                                                : light_right_arrow
+                                        }
                                         alt=""
-                                        className="values-icons"
+                                        className="right-arrow"
+                                        onClick={() =>
+                                            rightArrowHandler(
+                                                valuesDatas,
+                                                currentValuesDatas,
+                                                setCurrentValuesDatas
+                                            )
+                                        }
                                     />
-                                    <h3 className="values-title">STRATEGY</h3>
-                                    <p className="values-text">
-                                        With plenty of experience from our work
-                                        and in-depth analysis of more advanced
-                                        agencies, we process the most effective
-                                        method to grow your business in a short
-                                        time. Many companies collapse with no
-                                        strategy.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon3}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">
-                                        TRANSPARENCY
-                                    </h3>
-                                    <p className="values-text">
-                                        We are open, honest, and straight
-                                        forward to our clients. This is how we
-                                        gain trust, and this is how we keep our
-                                        agency's name clear. In return, we get
-                                        the same clear and friendly
-                                        relationships. Whatever we do, this is
-                                        the most valuable thing for us.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon4}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">TRUST</h3>
-                                    <p className="values-text">
-                                        Trust is one of the most meaningful
-                                        things in our job. By growing up with
-                                        our partners we have gained
-                                        irreplaceable things such as experience
-                                        and trust. And this gives us the most
-                                        value.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon5}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">UNIQUENESS</h3>
-                                    <p className="values-text">
-                                        Most of our clients are not the only
-                                        ones in their sphere. So we work on
-                                        making them unique and creative,
-                                        separating them from the gray crowd.
-                                        From the plenty of fish, you will notice
-                                        at first the one that shines the best
-                                        with its uniqueness.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon6}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">
-                                        RESPONSIBILITY
-                                    </h3>
-                                    <p className="values-text">
-                                        Our team consists of professional
-                                        specialists who's duty is just to make
-                                        our clients pleased. Discipline,
-                                        communication and active rest, this is
-                                        how our team works on projects. So
-                                        easily rely on us and don’t care about
-                                        deadlines.
-                                    </p>
-                                </div>
-                            </div>
-                        ) : (
-                            <Carousel
-                                showThumbs={false}
-                                showStatus={false}
-                                showIndicators={false}
-                                w>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon1}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">GROWTH</h3>
-                                    <p className="values-text">
-                                        This is what we will bring to your
-                                        business. More fame between your
-                                        individual type of businesses. More
-                                        clients and which by itself means more
-                                        sales. Our clients have experienced it
-                                        just after months. Making your business
-                                        grow also.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon2}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">STRATEGY</h3>
-                                    <p className="values-text">
-                                        With plenty of experience from our work
-                                        and in-depth analysis of more advanced
-                                        agencies, we process the most effective
-                                        method to grow your business in a short
-                                        time. Many companies collapse with no
-                                        strategy.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon3}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">
-                                        TRANSPARENCY
-                                    </h3>
-                                    <p className="values-text">
-                                        We are open, honest, and straight
-                                        forward to our clients. This is how we
-                                        gain trust, and this is how we keep our
-                                        agency's name clear. In return, we get
-                                        the same clear and friendly
-                                        relationships. Whatever we do, this is
-                                        the most valuable thing for us.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon4}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">TRUST</h3>
-                                    <p className="values-text">
-                                        Trust is one of the most meaningful
-                                        things in our job. By growing up with
-                                        our partners we have gained
-                                        irreplaceable things such as experience
-                                        and trust. And this gives us the most
-                                        value.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon5}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">UNIQUENESS</h3>
-                                    <p className="values-text">
-                                        Most of our clients are not the only
-                                        ones in their sphere. So we work on
-                                        making them unique and creative,
-                                        separating them from the gray crowd.
-                                        From the plenty of fish, you will notice
-                                        at first the one that shines the best
-                                        with its uniqueness.
-                                    </p>
-                                </div>
-                                <div className="values-items-container">
-                                    <img
-                                        src={values_icon6}
-                                        alt=""
-                                        className="values-icons"
-                                    />
-                                    <h3 className="values-title">
-                                        RESPONSIBILITY
-                                    </h3>
-                                    <p className="values-text">
-                                        Our team consists of professional
-                                        specialists who's duty is just to make
-                                        our clients pleased. Discipline,
-                                        communication and active rest, this is
-                                        how our team works on projects. So
-                                        easily rely on us and don’t care about
-                                        deadlines.
-                                    </p>
-                                </div>
-                            </Carousel>
-                        )}
+                                    <div className="values-items-container">
+                                        <img
+                                            src={currentValuesDatas.icon}
+                                            alt=""
+                                            className="values-icons"
+                                        />
+                                        <h3 className="values-title">{currentValuesDatas.title}</h3>
+                                        <p className="values-text">
+                                            {currentValuesDatas.text}
+                                        </p>
+                                    </div>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </section>
                 <section>
