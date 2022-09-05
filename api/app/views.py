@@ -57,14 +57,14 @@ class ContactUsList(generics.ListCreateAPIView):
     serializer_class = ContactUsSerializer
 
     def perform_create(self, serializer):
-        serializer.save()
-        if validate_email(serializer['email'], check_mx=True):
+        if validate_email(serializer['email'].value, check_mx=True, verify=True):
             subject = 'Contact Us'
             message = f'Ողջույն, ես {serializer["name"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}: Նամակ - {serializer["email"].value}'
+            #send_mail_message(subject, message)
             print(subject)
+            return Response(status=status.HTTP_200_OK)
         else:
-            print('No')
-        #send_mail_message(subject, message)
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class ContactUsDetail(generics.RetrieveAPIView):
