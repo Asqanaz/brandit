@@ -2,12 +2,12 @@ import React from "react"
 import contact from "../../assets/images/contact.png"
 import "./contact.css"
 
-const Contact = ({theme, lang, screen}) => {
+const Contact = ({ theme, lang, screen }) => {
     return (
         <div className="contact container">
-            <h2 className="contact title">Contact Us</h2>
+            <h2 className="title">Contact Us</h2>
             <p className="contact text">Start your project with Brandit</p>
-            <p className="subtext">Send us a message today to get started.</p>
+            <p className="contact text">Send us a message today to get started.</p>
             <div className={`form-container ${theme}`}>
                 <div className="form-box">
                     <form className="form">

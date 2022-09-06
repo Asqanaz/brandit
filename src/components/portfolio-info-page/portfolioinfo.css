@@ -2,7 +2,7 @@
     flex-direction: column;
 }
 
-.portfolio-main-image{
+.portfolio-main-image {
     width: 100%;
     height: 100%;
     margin: 3% 0;
@@ -13,7 +13,7 @@
     justify-content: center;
 }
 
-.content-container{
+.content-container {
     margin-top: 3%;
 }
 
@@ -21,7 +21,7 @@
     width: 25%;
     display: flex;
     flex-direction: column;
-    font-size: 1.6vw;
+    font-size: 1.5rem;
 }
 
 .portfolio-info-part .center {
@@ -32,7 +32,7 @@
     align-items: flex-end;
 }
 
-.design-container{
+.design-container {
     margin-top: 3%;
 }
 .design-image-container {
@@ -49,26 +49,26 @@
     object-fit: cover;
 }
 
-.design-image-container .design-item{
+.design-image-container .design-item {
     width: 49%;
     margin-left: 2%;
 }
 
-.design-item:nth-child(odd){
+.design-item:nth-child(odd) {
     margin: 0;
 }
 
-.design-item:nth-child(n + 3){
+.design-item:nth-child(n + 3) {
     margin-top: 2%;
 }
-.design-image-container .design-item.last{
+.design-image-container .design-item.last {
     width: 100%;
 }
 
-.similiar-container{
+.similiar-container {
     margin-top: 6%;
 }
-.similiar-image-container{
+.similiar-image-container {
     margin-top: 3%;
     display: flex;
     flex-direction: row;
@@ -76,54 +76,64 @@
     justify-content: space-between;
 }
 
-.similiar-image-container .similiar-item{
+.similiar-image-container .similiar-item {
     width: 49%;
 }
 
-.similiar-image-container .similiar-item:nth-child(n + 3){
+.similiar-image-container .similiar-item:nth-child(n + 3) {
     margin-top: 2%;
 }
 
-.similiar-image-container .similiar-item img{
+.similiar-image-container .similiar-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-
-.content-title{
-    font-size: 2.1vw;
+.content-title {
+    font-size: 1.9rem;
 }
 
-.content-text{
-    font-size: 2.1vw;
+.content-text {
+    font-size: 1.9rem;
 }
 
+@media (max-width: 1050px) {
+    .content-title {
+        font-size: 1.5rem;
+    }
+
+    .content-text {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-info-part .info-part-items{
+        font-size: 1.3rem;
+    }
+}
 @media (max-width: 600px) {
-    .portfolio-info-part{
+    .portfolio-info-part {
         /* width: 100%; */
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
     }
-    .portfolio-info-part .info-part-items{
+    .portfolio-info-part .info-part-items {
         justify-content: flex-start;
         align-items: flex-start;
         margin-top: 2%;
-        font-size: 5vw ;
+        font-size: .9rem;
     }
 
-    .portfolio-info-part .info-part-items:first-child{
+    .portfolio-info-part .info-part-items:first-child {
         margin-top: 0;
     }
 
-    .content-title{
-        font-size: 4.5vw;
+    .content-title {
+        font-size: .8rem;
     }
 
-    .content-text{
-        font-size: 4.5vw;
+    .content-text {
+        font-size: .8rem;
     }
-
-
 }

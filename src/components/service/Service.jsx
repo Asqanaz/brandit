@@ -37,9 +37,14 @@ const Service = () => {
                             Animation & Promo Videos
                         </h3>
                         <p className="service-text">
-                            Want to showcase your project? Let us create an on
+                            {/* Want to showcase your project? Let us create an on
                             brand masterpiece that captures your holders
-                            attention.
+                            attention. */}
+                            From the development of a positioning strategy to
+                            the stage of developing a visual image (name, logo,
+                            corporate identity and other corporate components).
+                            The main goal is to create a complete brand image
+                            and give it a competitive advantage.
                         </p>
                     </div>
                 </div>

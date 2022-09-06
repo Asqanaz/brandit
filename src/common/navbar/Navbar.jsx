@@ -14,43 +14,47 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     const navbarRef = useRef()
     const mobile_navbarRef = useRef()
 
-    window.matchMedia("(min-width: 600px").matches
-        && (document.onmousemove = (e) => {
-              if (e.clientY >= 380) {
-                //   navbarRef.current.style.transform = "translateY(-90px)"
-                navbarRef.current.style.top = -90 + 'px'
-                  navbarRef.current.style.transition = 0.7 + "s"
-              } else {
-                //   navbarRef.current.style.transform = "translateY(0px)"
-                navbarRef.current.style.top = 0
+    useEffect(() => {
+        const handleNavbarToggle = (e) => {
+            if (window.matchMedia("(min-width: 600px)").matches) {
+                if (e.clientY >= 380) {
+                    navbarRef.current.style.top = -90 + "px"
+                    navbarRef.current.style.transition = 0.7 + "s"
+                } else {
+                    navbarRef.current.style.top = 0
+                    navbarRef.current.style.transition = 0.7 + "s"
+                }
+            }
+        }
+        document.addEventListener("mousemove", handleNavbarToggle)
 
-                  navbarRef.current.style.transition = 0.7 + "s"
-              }
-          })
+        return () => document.removeEventListener('mousemove', handleNavbarToggle)
+    }, [])
 
-          const bolderFont = (e) => {
-            e.target.focus()
-          }
+    console.log(window.matchMedia("(min-width: 600px)").matches)
 
-        // const li = document.querySelectorAll('li')
-        // useEffect(() => {
-        //     li.forEach(item => 
-        //         item.onClick = (e) =>{
-        //             console.log(e.target)
-        //             // item.baseURI.match(window.location.href) ? item.style.fontWeight = "bolder" : item.style.fontWeight = "normal"
-        //         }
-        //         // console.log(item.baseURI)
-        //         )
-        
-        // }, [window.location.href])
-        
-        // console.log(window.location.href)
+    const bolderFont = (e) => {
+        e.target.focus()
+    }
 
-          
+    // const li = document.querySelectorAll('li')
+    // useEffect(() => {
+    //     li.forEach(item =>
+    //         item.onClick = (e) =>{
+    //             console.log(e.target)
+    //             // item.baseURI.match(window.location.href) ? item.style.fontWeight = "bolder" : item.style.fontWeight = "normal"
+    //         }
+    //         // console.log(item.baseURI)
+    //         )
+
+    // }, [window.location.href])
+
+    // console.log(window.location.href)
+
     return (
         <>
-        {screen >= 600 ? (
-                <nav className={`nav ${theme}`} ref={navbarRef} >
+            {screen >= 600 ? (
+                <nav className={`nav ${theme}`} ref={navbarRef}>
                     <div className={`navbar ${theme}`}>
                         <Link to="/">
                             {theme === "light" ? (
@@ -61,16 +65,24 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                         </Link>
                         <ul className={`navbar__list ${theme}`}>
                             <li>
-                                <Link to="/portfolio" onClick = {bolderFont}>Portfolio</Link>
+                                <Link to="/portfolio" onClick={bolderFont}>
+                                    Portfolio
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/about" onClick = {bolderFont}>About</Link>
+                                <Link to="/about" onClick={bolderFont}>
+                                    About
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/service" onClick = {bolderFont}>Service</Link>
+                                <Link to="/service" onClick={bolderFont}>
+                                    Service
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/contact" onClick = {bolderFont}>Contact Us</Link>
+                                <Link to="/contact" onClick={bolderFont}>
+                                    Contact Us
+                                </Link>
                             </li>
                         </ul>
                         <div className="navbar__settings">
@@ -107,7 +119,9 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                 </nav>
             ) : (
                 <nav>
-                    <div className={`mobile-navbar ${theme}`} ref = {mobile_navbarRef}>
+                    <div
+                        className={`mobile-navbar ${theme}`}
+                        ref={mobile_navbarRef}>
                         <div className="nav-container">
                             <input
                                 className="checkbox"

@@ -6,9 +6,6 @@
     margin: 0;
 }
 
-.subtext{
-    font-size: 1.7vw;
-}
 
 .contact.container .image-box img{
     position: absolute;
@@ -45,7 +42,7 @@
     }
 
     .form input{
-        font-size: 4.5vw;
+        font-size: 1rem;
     }
 
     .form .message{
