@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/brandit/static/css/main.31cbe97f.css",
-    "main.js": "/brandit/static/js/main.3ce210a9.js",
+    "main.js": "/brandit/static/js/main.4cd779ed.js",
     "static/media/design2.png": "/brandit/static/media/design2.268cda7e2815315602f6.png",
     "static/media/similiar2.png": "/brandit/static/media/similiar2.268cda7e2815315602f6.png",
     "static/media/design5.png": "/brandit/static/media/design5.01ef5943cac073f09c6d.png",
@@ -116,10 +116,10 @@
     "static/media/checkbox-unchecked.svg": "/brandit/static/media/checkbox-unchecked.8a9b6b59ec5ab3beef1593f0081664d1.svg",
     "static/media/light-unchecked.svg": "/brandit/static/media/light-unchecked.f6836eb9c9da9f04dc0e48dcd59faacd.svg",
     "main.31cbe97f.css.map": "/brandit/static/css/main.31cbe97f.css.map",
-    "main.3ce210a9.js.map": "/brandit/static/js/main.3ce210a9.js.map"
+    "main.4cd779ed.js.map": "/brandit/static/js/main.4cd779ed.js.map"
   },
   "entrypoints": [
     "static/css/main.31cbe97f.css",
-    "static/js/main.3ce210a9.js"
+    "static/js/main.4cd779ed.js"
   ]
 }
