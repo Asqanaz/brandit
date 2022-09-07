@@ -60,8 +60,7 @@ class ContactUsList(generics.ListCreateAPIView):
         if validate_email(serializer['email'].value, check_mx=True, verify=True):
             subject = 'Contact Us'
             message = f'Ողջույն, ես {serializer["name"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}: Նամակ - {serializer["email"].value}'
-            #send_mail_message(subject, message)
-            print(subject)
+            send_mail_message(subject, message)
             return Response(status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -76,6 +75,9 @@ class PriceOfferList(generics.ListCreateAPIView):
     serializer_class = PriceOfferSerializer
 
     def perform_create(self, serializer):
+        subject = 'Price Offer'
+        message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Պրոեկտ - {serializer["project_type"].value}: Ընկերության անվանում - {serializer["company_name"].value} Պրոեկտի Նկարագրություն - {serializer["about_project"].value}'
+        send_mail_message(subject, message)
         serializer.save()
 
 class PriceOfferDetail(generics.RetrieveAPIView):
@@ -87,11 +89,25 @@ class ScheduleACallList(generics.ListCreateAPIView):
     serializer_class = ScheduleACallSerializer
 
     def perform_create(self, serializer):
+        subject = 'Schedule a Call'
+        message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Զանգի նպատակը - {serializer["project_type"].value}: Օր/Ժամ - {serializer["date"].value} {serializer["time"].value}'
+        send_mail_message(subject, message)
         serializer.save()
 
 class ScheduleACallDetail(generics.RetrieveAPIView):
     queryset = ScheduleACall.objects.all()
     serializer_class = ScheduleACallSerializer
+
+class OurWorkList(generics.ListCreateAPIView):
+    queryset = OurWork.objects.all()
+    serializer_class = OurWorkSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+class OurWorkDetail(generics.RetrieveAPIView):
+    queryset = OurWork.objects.all()
+    serializer_class = OurWorkSerializer
 
 def send_mail_message(subject, message):
     email_from = settings.EMAIL_HOST_USER

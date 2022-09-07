@@ -11,6 +11,7 @@ urlpatterns = [
     path('contact-us-list/', views.ContactUsList.as_view()),
     path('price-offer-list/', views.PriceOfferList.as_view()),
     path('schedule-call-list/', views.ScheduleACallList.as_view()),
+    path('our-work-list/', views.OurWorkList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

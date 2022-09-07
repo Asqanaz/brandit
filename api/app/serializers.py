@@ -37,3 +37,8 @@ class ScheduleACallSerializer(serializers.ModelSerializer):
     class Meta:
         model = ScheduleACall
         fields = '__all__'
+
+class OurWorkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OurWork
+        fields = '__all__'

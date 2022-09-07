@@ -66,3 +66,10 @@ class ScheduleACall(models.Model):
 
     def __str__(self):
         return self.email
+
+class OurWork(models.Model):
+    title = models.CharField(blank=True, max_length=100)
+    image = models.FileField(blank=True, upload_to='images/our-works')
+
+    def __str__(self):
+        return self.title
