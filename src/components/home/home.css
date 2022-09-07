@@ -1,38 +1,38 @@
 @keyframes home-animation-upper {
     from {
-        margin-left: -45%;
+        margin-left: -35%;
     }
 
     50% {
         margin-left: -4%;
     }
     to {
-        margin-left: -45%;
+        margin-left: -35%;
     }
 }
 
 @keyframes home-animation-middle {
     from {
-        margin-left: -41%;
+        margin-left: -31%;
     }
 
     50% {
         margin-left: 0;
     }
     to {
-        margin-left: -41%;
+        margin-left: -31%;
     }
 }
 @keyframes home-animation-lower {
     from {
-        margin-left: -47%;
+        margin-left: -37%;
     }
 
     50% {
         margin-left: -6%;
     }
     to {
-        margin-left: -47%;
+        margin-left: -37%;
     }
 }
 
@@ -46,6 +46,7 @@
     position: relative;
     flex-direction: row;
     height: 100vh;
+    transition: 0.5s all ease-in-out
 }
 
 .dot-container {
@@ -58,12 +59,6 @@
     justify-content: center;
 }
 
-.dot {
-    width: 20px;
-    height: 20px;
-    margin-top: 50%;
-    cursor: pointer;
-}
 .content-box {
     width: 50%;
     display: flex;
@@ -401,6 +396,43 @@ span.content-box__text {
     margin-top: 15%;
 }
 
+.slick-dots{
+    bottom: 50%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.slick-dots li{
+    margin: 5px 0;
+}
+.slick-dots li .dot{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #6321f9;
+}
+
+.slick-dots li .dot .inner-dot{
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: #6321f9;
+    display: none;
+}
+
+.slick-dots .slick-active .dot .inner-dot{
+    display: block;
+}
+
+
 @media screen and (max-width: 1050px) {
     .title {
         font-size: 2.5rem;
@@ -498,10 +530,7 @@ span.content-box__text {
         width: 100%;
     }
 
-    .dot {
-        margin-top: 0;
-        margin-left: 2%;
-    }
+    
 
     .content-box__title {
         font-size: 2rem;
@@ -652,5 +681,14 @@ span.content-box__text {
 
     .form-container{
         margin-top: 20%;
+    }
+    .slick-dots{
+        bottom: 0;
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .slick-dots li{
+        margin: 0 5px;
     }
 }

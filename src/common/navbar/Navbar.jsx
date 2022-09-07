@@ -17,7 +17,7 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     useEffect(() => {
         const handleNavbarToggle = (e) => {
             if (window.matchMedia("(min-width: 600px)").matches) {
-                if (e.clientY >= 380) {
+                if (e.clientY >= 180) {
                     navbarRef.current.style.top = -90 + "px"
                     navbarRef.current.style.transition = 0.7 + "s"
                 } else {

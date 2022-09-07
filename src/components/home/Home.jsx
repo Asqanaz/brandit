@@ -1,5 +1,8 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import "./home.css"
 import hero1 from "../../assets/images/hero1.png"
 import hero2 from "../../assets/images/hero2.png"
@@ -71,16 +74,19 @@ const Home = ({ theme, lang, screen }) => {
 
     const heroObject = [
         {
+            id: 1,
             title: "Brand identity and logo design",
             text: "The first step for high quality brand is to have quality logo and design!",
             src: hero1
         },
         {
+            id: 2,
             title: "Digital Marketing",
             text: "We will take care of your marketing. Get a fame and new clients with us!",
             src: hero2
         },
         {
+            id: 3,
             title: "Packaging design",
             text: "Have a unique packaging. Be the best in the market with us!",
             src: hero3
@@ -116,11 +122,32 @@ const Home = ({ theme, lang, screen }) => {
             }
         }
     }
+
+    const settings = {
+        dots: true,
+        fade: true,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        appendDots: (dots) => <ul>{dots}</ul>,
+        customPaging: (slider, i) => {
+            return (
+                <div className="dot">
+                    <div className="inner-dot"></div>
+                </div>
+            )
+        }
+    }
     return (
         <>
             <section className="header-section">
-                <div className="header container">
-                    <div className="dot-container">
+                {/* <div className="dot-container">
                         {heroObject.map((item, index) => (
                             <img
                                 key={index}
@@ -129,29 +156,55 @@ const Home = ({ theme, lang, screen }) => {
                                     item.src == currentDotDatas.src
                                         ? dot_selected
                                         : dot
-                                }
-                                onClick={dotHandler.bind(this, item)}
+                                    }
+                                    onClick={dotHandler.bind(this, item)}
                             />
                         ))}
                     </div>
                     <div className="content-box">
-                        <h2 className="content-box__title">
-                            {currentDotDatas.title}
-                        </h2>
-                        <p className="content-box__text">
+                    <h2 className="content-box__title">
+                    {currentDotDatas.title}
+                    </h2>
+                    <p className="content-box__text">
                             {currentDotDatas.text}
                         </p>
                         <span className="content-box__text">
-                            Let's Get Started
+                        Let's Get Started
                         </span>
                         <Link to="/start-a-project">
-                            <button className="button">start a project</button>
+                        <button className="button">start a project</button>
                         </Link>
-                    </div>
-                    <div className="image-container">
+                        </div>
+                        <div className="image-container">
                         <img src={currentDotDatas.src} alt="" />
-                    </div>
-                </div>
+                    </div> */}
+                <Slider {...settings}>
+                    {heroObject.map((item) => (
+                        <div className="wrapper">
+                            <div className="header container" key={item.id}>
+                                <div className="content-box">
+                                    <h2 className="content-box__title">
+                                        {item.title}
+                                    </h2>
+                                    <p className="content-box__text">
+                                        {item.text}
+                                    </p>
+                                    <span className="content-box__text">
+                                        Let's Get Started
+                                    </span>
+                                    <Link to="/start-a-project">
+                                        <button className="button">
+                                            start a project
+                                        </button>
+                                    </Link>
+                                </div>
+                                <div className="image-container">
+                                    <img src={item.src} alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </Slider>
             </section>
             <section className="service-section">
                 <div className="section container">
