@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/brandit/static/css/main.31cbe97f.css",
+    "main.css": "/brandit/static/css/main.3635fb26.css",
     "main.js": "/brandit/static/js/main.4cd779ed.js",
     "static/media/design2.png": "/brandit/static/media/design2.268cda7e2815315602f6.png",
     "static/media/similiar2.png": "/brandit/static/media/similiar2.268cda7e2815315602f6.png",
@@ -115,11 +115,11 @@
     "static/media/dot.svg": "/brandit/static/media/dot.d15a16a52e87c71b8c7ebb0e8b7f3c8a.svg",
     "static/media/checkbox-unchecked.svg": "/brandit/static/media/checkbox-unchecked.8a9b6b59ec5ab3beef1593f0081664d1.svg",
     "static/media/light-unchecked.svg": "/brandit/static/media/light-unchecked.f6836eb9c9da9f04dc0e48dcd59faacd.svg",
-    "main.31cbe97f.css.map": "/brandit/static/css/main.31cbe97f.css.map",
+    "main.3635fb26.css.map": "/brandit/static/css/main.3635fb26.css.map",
     "main.4cd779ed.js.map": "/brandit/static/js/main.4cd779ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.31cbe97f.css",
+    "static/css/main.3635fb26.css",
     "static/js/main.4cd779ed.js"
   ]
 }

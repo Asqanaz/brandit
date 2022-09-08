@@ -31,25 +31,9 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
         return () => document.removeEventListener('mousemove', handleNavbarToggle)
     }, [])
 
-    console.log(window.matchMedia("(min-width: 600px)").matches)
-
     const bolderFont = (e) => {
         e.target.focus()
     }
-
-    // const li = document.querySelectorAll('li')
-    // useEffect(() => {
-    //     li.forEach(item =>
-    //         item.onClick = (e) =>{
-    //             console.log(e.target)
-    //             // item.baseURI.match(window.location.href) ? item.style.fontWeight = "bolder" : item.style.fontWeight = "normal"
-    //         }
-    //         // console.log(item.baseURI)
-    //         )
-
-    // }, [window.location.href])
-
-    // console.log(window.location.href)
 
     return (
         <>
