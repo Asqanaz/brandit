@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"private": true,
-	"homepage": "https://asqanaz.github.io/brandit/",
+	"homepage": "https://asqanaz.github.io/",
 	"dependencies": {
 		"@date-io/date-fns": "^2.15.0",
 		"@emotion/react": "^11.10.0",

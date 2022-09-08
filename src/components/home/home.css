@@ -632,27 +632,29 @@ span.content-box__text {
     .left-arrow {
         position: absolute;
         left: 0;
-        top: 50%;
+        top: 45%;
     }
 
     .right-arrow {
         position: absolute;
         right: 0;
-        top: 50%;
+        top: 45%;
     }
 
     .values-items-container {
-        padding-left: 15%;
+        padding-left: 12%;
         margin: 0 auto;
         width: 90%;
     }
 
     .values-container {
         position: relative;
+        height: 150px;
     }
 
     .values-icons {
         top: 0;
+        left: 0;
         width: 10%;
     }
     .values-title {
@@ -684,11 +686,16 @@ span.content-box__text {
     }
     .slick-dots{
         bottom: 0;
+        right: 0;
         flex-direction: row;
         width: 100%;
     }
     
     .slick-dots li{
         margin: 0 5px;
+    }
+
+    .works-section .section.container{
+        height: 100vh;
     }
 }

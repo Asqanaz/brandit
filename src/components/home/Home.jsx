@@ -147,37 +147,6 @@ const Home = ({ theme, lang, screen }) => {
     return (
         <>
             <section className="header-section">
-                {/* <div className="dot-container">
-                        {heroObject.map((item, index) => (
-                            <img
-                                key={index}
-                                className="dot"
-                                src={
-                                    item.src == currentDotDatas.src
-                                        ? dot_selected
-                                        : dot
-                                    }
-                                    onClick={dotHandler.bind(this, item)}
-                            />
-                        ))}
-                    </div>
-                    <div className="content-box">
-                    <h2 className="content-box__title">
-                    {currentDotDatas.title}
-                    </h2>
-                    <p className="content-box__text">
-                            {currentDotDatas.text}
-                        </p>
-                        <span className="content-box__text">
-                        Let's Get Started
-                        </span>
-                        <Link to="/start-a-project">
-                        <button className="button">start a project</button>
-                        </Link>
-                        </div>
-                        <div className="image-container">
-                        <img src={currentDotDatas.src} alt="" />
-                    </div> */}
                 <Slider {...settings}>
                     {heroObject.map((item) => (
                         <div className="wrapper">
