@@ -12,9 +12,9 @@ import { categoriesDatas } from "./datas/categoriesDatas"
 const Portfolio = ({ theme, lang, screen }) => {
     const handleUnderLine = (e) => {
         categoriesDatas.forEach((item) => {
-            e.target.innerText == item.title ? e.target.classList.add("active")
-            :
-            e.target.classList.remove("active")
+            e.target.innerText == item.title
+                ? e.target.classList.add("active")
+                : e.target.classList.remove("active")
         })
     }
     return (
@@ -126,6 +126,92 @@ const Portfolio = ({ theme, lang, screen }) => {
                         </div>
                     </div>
                 </div>
+                {/* <div className="grid-images-wrapper">
+                    <div className="portfolio-item">
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio1}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="portfolio-item">
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio2}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="portfolio-item">
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio3}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="portfolio-item middle">
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio4}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="portfolio-item item5" >
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio5}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="portfolio-item item6">
+                        <Link to="/portfolio-info">
+                            <img
+                                src={portfolio6}
+                                alt="portfolio_image"
+                                className="portfolio-images"
+                            />
+                            <div className="title-box">
+                                <h2 className="image title">
+                                    Dolice & Garbana
+                                </h2>
+                            </div>
+                        </Link>
+                    </div> 
+                </div>*/}
             </div>
         </>
     )

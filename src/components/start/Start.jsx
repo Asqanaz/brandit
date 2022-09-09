@@ -29,7 +29,6 @@ const Start = ({theme, lang, screen}) => {
         setPriceCallChecked(false)
     }
 
-    // console.log(new Date().toDateString())
     return (
         <div className="start container">
             <div className={`start-wrapper ${theme}`}>
@@ -140,7 +139,7 @@ const Start = ({theme, lang, screen}) => {
                         <>
                             <div className="select-container ${theme}">
                                 <h3 className="subform-title type">
-                                    Preferred means of call
+                                    Project types
                                 </h3>
                                 <Select
                                     className={`project-select ${theme}`}

@@ -131,7 +131,7 @@ span.content-box__text {
 }
 
 .text {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 5%;
 }
 .items-container {
@@ -450,10 +450,6 @@ span.content-box__text {
         font-size: 1rem;
     }
 
-    .text {
-        font-size: 1.7rem;
-    }
-
     .button.view {
         font-size: 1rem;
     }
@@ -483,6 +479,10 @@ span.content-box__text {
 
     .user-login {
         font-size: 0.8rem;
+    }
+
+    .text{
+        font-size: 1.4rem;
     }
 }
 
