@@ -46,7 +46,7 @@ button {
 }
 
 .app{
-    padding-top: 5%;
+    padding-top: 82px;
     padding-bottom: 5%;
     display: flex;
     flex-direction: column;
@@ -58,6 +58,6 @@ button {
 
 @media (max-width: 600px){
     .app{
-        padding-top: 15%;
+        padding-top: 60px;
     }
 }

@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1% 0 1% 0;
+    padding: 1.5rem 0 1.5rem 0;
 }
 
 .nav {
@@ -34,6 +34,7 @@
 .navbar__list > li {
     margin-left: 2vw;
     list-style: none;
+    font-size: 1.3rem;
 }
 
 .navbar__list > li:first-child {
@@ -257,6 +258,14 @@ a:focus {
     z-index: 2;
 }
 
+.logo a{
+    padding: 0 !important;
+}
+
+.logo a img{
+    width: 75px;
+    height: 20px
+}
 @media only screen and (max-width: 600px) {
     .theme-icon {
         font-size: 2rem;

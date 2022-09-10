@@ -13,11 +13,11 @@
 
 .portfolio.container{
     flex-direction: column;
+    margin-top: 77px;
 }
 
 .portfolio.container .text{
     margin-bottom: 0;
-    margin-top: 1%;
 }
 .images-wrapper .upper-col .portfolio-item {
     width: 32%;
@@ -111,7 +111,6 @@
     width: 100%
 } */
 
-
 @media screen and (max-width: 1441px) {
     .image.title{
         font-size: 1.4rem;
@@ -149,11 +148,23 @@
 }
 
 @media screen and (max-width: 600px){
+    .portfolio.container{
+        margin-top: 22px;
+    }
     .image.title{
         font-size: 2vw;
     }
 
     .title-box{
         height: 3vh;
+    }
+
+    .categories-list li{
+        font-size: .9rem;
+        margin-left: 16px;
+    }
+
+    .categories-wrapper{
+        margin: 20px 0 15px 0;
     }
 }

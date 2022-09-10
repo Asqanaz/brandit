@@ -1,5 +1,6 @@
 .portfolioinfo.container {
     flex-direction: column;
+    margin-top: 77px;
 }
 
 .portfolio-main-image {
@@ -112,6 +113,9 @@
     }
 }
 @media (max-width: 600px) {
+    .portfolioinfo.container{
+        margin-top: 22px;
+    }
     .portfolio-info-part {
         /* width: 100%; */
         flex-direction: column;

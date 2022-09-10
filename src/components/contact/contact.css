@@ -1,5 +1,6 @@
 .contact.container{
     flex-direction: column;
+    margin-top: 77px;
 }
 
 .contact.text{

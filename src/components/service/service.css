@@ -1,5 +1,6 @@
 .service.container{
     flex-direction: column;
+    margin-top: 77px;
 }
 
 .service-items-container{
@@ -60,6 +61,9 @@
 }
 
 @media (max-width: 600px){
+    .service.container{
+        margin-top: 22px;
+    }
     .service-items-container{
         width: 100%;
         margin: 0;
