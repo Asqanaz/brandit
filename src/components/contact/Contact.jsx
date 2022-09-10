@@ -12,7 +12,7 @@ const Contact = ({ theme, lang, screen }) => {
                 <div className="form-box">
                     <form className="form">
                         <input type="text" placeholder="Name" />
-                        <input type="text" placeholder="Surname" />
+                        <input type="email" placeholder="Email" />
                         <input
                             type="text"
                             placeholder="Message"

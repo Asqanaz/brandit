@@ -14,6 +14,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import TimePicker from "rc-time-picker"
 import "rc-time-picker/assets/index.css"
+import { options } from "./optionsData"
 
 const Start = ({theme, lang, screen}) => {
     const [priceCallChecked, setPriceCallChecked] = useState(true)
@@ -80,6 +81,7 @@ const Start = ({theme, lang, screen}) => {
                                     Project type
                                 </h3>
                                 <Select
+                                    options={options}
                                     className="project-select"
                                     classNamePrefix="select"
                                     isMulti={false}
