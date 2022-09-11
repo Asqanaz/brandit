@@ -584,7 +584,7 @@ const Home = ({ theme, lang, screen }) => {
                         </p>
                         <form className="form">
                             <input type="text" placeholder="Name" />
-                            <input type="email" placeholder="Email" />3
+                            <input type="email" placeholder="Email" />
                             <input
                                 type="text"
                                 placeholder="Message"

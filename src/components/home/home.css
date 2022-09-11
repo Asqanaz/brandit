@@ -698,4 +698,12 @@ span.content-box__text {
     .works-section .section.container{
         height: 100vh;
     }
+
+    .button.view{
+        padding: .5rem 1rem;
+    }
+
+    .button-arrow{
+        width: .5rem;
+    }
 }
