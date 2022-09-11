@@ -178,6 +178,14 @@ label {
 .start-wrapper.light .select__placeholder {
     color: #000 !important;
 }
+
+.start-wrapper.light .select__single-value{
+    color: #000 !important;
+}
+
+.start-wrapper.light .select__option--is-focused{
+    color: #000 !important;
+}
 .select__indicator-separator {
     display: none !important;
 }
@@ -189,6 +197,7 @@ label {
 .select__option--is-focused {
 	background-color: transparent !important;
 	cursor: pointer !important;
+    color: white !important;
 }
 
 .select__single-value {

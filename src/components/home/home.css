@@ -36,6 +36,14 @@
     }
 }
 
+.chat-icon{
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    width: 90px;
+    height: 90px;
+    z-index: 100;
+}
 .container {
     width: 90vw;
     margin: 0 auto;
@@ -46,7 +54,7 @@
     position: relative;
     flex-direction: row;
     height: 100vh;
-    transition: 0.5s all ease-in-out
+    transition: 0.5s all ease-in-out;
 }
 
 .dot-container {
@@ -60,7 +68,7 @@
 }
 
 .content-box {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,11 +99,14 @@ span.content-box__text {
 }
 
 .image-container {
-    width: 50%;
-    display: flex;
-    flex-direction: row;
+    width: 60%;
     overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+
 
 .button.view {
     display: flex;
@@ -175,7 +186,7 @@ span.content-box__text {
     background-size: cover;
 }
 
-.service-title {
+.items-container .item .service-title {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 3vw;
@@ -396,7 +407,7 @@ span.content-box__text {
     margin-top: 15%;
 }
 
-.slick-dots{
+.slick-dots {
     bottom: 50%;
     right: 5%;
     display: flex;
@@ -406,10 +417,10 @@ span.content-box__text {
     width: fit-content;
 }
 
-.slick-dots li{
+.slick-dots li {
     margin: 5px 0;
 }
-.slick-dots li .dot{
+.slick-dots li .dot {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -420,7 +431,7 @@ span.content-box__text {
     border: 1px solid #6321f9;
 }
 
-.slick-dots li .dot .inner-dot{
+.slick-dots li .dot .inner-dot {
     width: 80%;
     height: 80%;
     border-radius: 50%;
@@ -428,12 +439,12 @@ span.content-box__text {
     display: none;
 }
 
-.slick-dots .slick-active .dot .inner-dot{
+.slick-dots .slick-active .dot .inner-dot {
     display: block;
 }
 
-
 @media screen and (max-width: 1050px) {
+   
     .title {
         font-size: 2.5rem;
     }
@@ -481,12 +492,60 @@ span.content-box__text {
         font-size: 0.8rem;
     }
 
-    .text{
+    .text {
         font-size: 1.4rem;
     }
 }
 
 @media screen and (max-width: 600px) {
+    @keyframes home-animation-upper {
+        from {
+            margin-left: -300%;
+        }
+
+        50% {
+            margin-left: -4%;
+        }
+        to {
+            margin-left: -300%;
+        }
+    }
+
+    @keyframes home-animation-middle {
+        from {
+            margin-left: -296%;
+        }
+
+        50% {
+            margin-left: 0;
+        }
+        to {
+            margin-left: -296%;
+        }
+    }
+    @keyframes home-animation-lower {
+        from {
+            margin-left: -306%;
+        }
+
+        50% {
+            margin-left: -6%;
+        }
+        to {
+            margin-left: -306%;
+        }
+    }
+
+    .upper img:first-child {
+        animation-duration: 12s;
+    }
+    
+    .row.middle img:first-child {
+        animation-duration: 12s;
+    }
+    .lower img:first-child {
+        animation-duration: 12s;
+    }
     .header-section {
         order: 1;
     }
@@ -503,16 +562,16 @@ span.content-box__text {
         order: 4;
     }
 
-    .clients-section{
+    .clients-section {
         order: 5;
     }
 
-    .form-section{
+    .form-section {
         order: 6;
     }
     .header.container {
         flex-direction: column;
-        height: fit-content;
+        height: 100vh;
     }
 
     .content-box {
@@ -530,8 +589,6 @@ span.content-box__text {
         width: 100%;
     }
 
-    
-
     .content-box__title {
         font-size: 2rem;
     }
@@ -545,7 +602,7 @@ span.content-box__text {
     .image-container {
         width: 100%;
         flex-direction: column;
-        height: auto;
+        height: 40%;
     }
 
     .image-container div {
@@ -681,29 +738,33 @@ span.content-box__text {
         margin-top: 2rem;
     }
 
-    .form-container{
+    .form-container {
         margin-top: 20%;
     }
-    .slick-dots{
+    .slick-dots {
         bottom: 0;
         right: 0;
         flex-direction: row;
         width: 100%;
     }
-    
-    .slick-dots li{
+
+    .slick-dots li {
         margin: 0 5px;
     }
 
-    .works-section .section.container{
+    .works-section .section.container {
         height: 100vh;
     }
 
-    .button.view{
-        padding: .5rem 1rem;
+    .button.view {
+        padding: 0.5rem 1rem;
     }
 
-    .button-arrow{
-        width: .5rem;
+    .button-arrow {
+        width: 0.5rem;
+    }
+
+    .apostrof{
+        width: 10%;
     }
 }

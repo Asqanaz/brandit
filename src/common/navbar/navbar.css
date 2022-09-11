@@ -18,10 +18,12 @@
     top: 0;
     z-index: 3;
     width: 100%;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    /* border-bottom: 2px solid rgba(255, 255, 255, 0.15); */
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.15);
 }
 .nav.light {
     background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .nav.dark {
@@ -87,11 +89,13 @@ a:focus {
 .mobile-navbar.dark {
     background-color: #000;
     transition: 0.5s all ease;
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.15);
 }
 
 .mobile-navbar.light {
     background-color: #fff;
     transition: 0.5s all ease;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .mobile-navbar {
     position: fixed;
@@ -115,7 +119,7 @@ a:focus {
     list-style: none;
 }
 
-.mobile-navbar .nav-container .menu-items li a:focus ~ .menu-items{
+.mobile-navbar .nav-container .menu-items li a:focus ~ .menu-items {
     transform: translate(-150%);
 }
 
@@ -130,10 +134,6 @@ a:focus {
 .mobile-navbar .nav-container a:hover {
     font-weight: bolder;
 }
-
-/* .mobile-navbar .nav-container a:hover ~ .menu-items{
-    transform: translate(-150%)
-} */
 
 .nav-container {
     display: block;
@@ -268,14 +268,13 @@ a:focus {
     height: 20px;
 }
 
-
 @media only screen and (max-width: 600px) {
     .theme-icon {
         font-size: 2rem;
         margin-right: 0.8rem;
     }
 
-    .navbar__settings{
+    .navbar__settings {
         height: 100%;
         width: 20%;
     }
