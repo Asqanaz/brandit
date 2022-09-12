@@ -17,19 +17,30 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
 
     const [isChecked, setIsChecked] = useState(false)
 
-    useEffect(() => {
-        const handleNavbarToggle = (e) => {
-            if (window.matchMedia("(min-width: 600px)").matches) {
-                if (e.clientY >= 180) {
-                    navbarRef.current.style.top = -90 + "px"
-                    navbarRef.current.style.transition = 0.7 + "s"
-                } else {
-                    navbarRef.current.style.top = 0
-                    navbarRef.current.style.transition = 0.7 + "s"
-                }
+    const handleNavbarToggle = (e) => {
+         {
+            if (e.clientY >= 180) {
+                navbarRef.current.style.top = -90 + "px"
+                navbarRef.current.style.transition = 0.7 + "s"
+            } else {
+                navbarRef.current.style.top = 0
+                navbarRef.current.style.transition = 0.7 + "s"
             }
         }
-        document.addEventListener("mousemove", handleNavbarToggle)
+    }
+    useEffect(() => {
+        window.addEventListener("scroll", function(){
+            if (window.matchMedia("(min-width: 600px)").matches){
+                if(document.documentElement.scrollTop > 700){
+                    navbarRef.current.style.top = -90 + "px"
+                    document.addEventListener("mousemove", handleNavbarToggle)
+                }
+                else{
+                    navbarRef.current.style.top = 0
+                    document.removeEventListener("mousemove", handleNavbarToggle)
+                }
+                console.log(document.documentElement.scrollTop)
+            }})
 
         return () => document.removeEventListener("mousemove", handleNavbarToggle)
     }, [])
@@ -100,54 +111,56 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                 <nav>
                     <div className={`mobile-navbar ${theme}`} ref={mobile_navbarRef}>
                         <div className="nav-container">
-                            <input
-                                className="checkbox"
-                                type="checkbox"
-                                name=""
-                                id=""
-                                ref={inputCheck}
-                                onChange={handleChecked}
-                                checked={isChecked}
-                            />
-                            {isChecked ? (
-                                <div className="navbar__settings">
-                                    <svg
-                                        width="2"
-                                        height="34"
-                                        viewBox="0 0 2 34"
-                                        fill="none"
-                                        className="vertical-line"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M1 0V34"
-                                            stroke={theme === "light" ? "black" : "white"}
-                                            strokeWidth="2"
-                                        />
-                                    </svg>
-                                    <span>{lang}</span>
-                                    <IoIosArrowDown className="arrow-down" />
-                                </div>
-                            ) : (
-                                <div className="logo">
-                                    <Link to="/">
-                                        {theme === "light" ? (
-                                            <img src={logo_light} alt="logo" />
-                                        ) : (
-                                            <img src={logo_dark} alt="logo" />
-                                        )}
-                                    </Link>
-                                </div>
-                            )}
-                            <div className="burger-menu">
-                                {!isChecked && (theme === "dark" ? (
-                                    <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                            <div className="nav-wrapper">
+                                <input
+                                    className="checkbox"
+                                    type="checkbox"
+                                    name=""
+                                    id=""
+                                    ref={inputCheck}
+                                    onChange={handleChecked}
+                                    checked={isChecked}
+                                />
+                                {isChecked ? (
+                                    <div className="navbar__settings">
+                                        <svg
+                                            width="2"
+                                            height="34"
+                                            viewBox="0 0 2 34"
+                                            fill="none"
+                                            className="vertical-line"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1 0V34"
+                                                stroke={theme === "light" ? "black" : "white"}
+                                                strokeWidth="2"
+                                            />
+                                        </svg>
+                                        <span>{lang}</span>
+                                        <IoIosArrowDown className="arrow-down" />
+                                    </div>
                                 ) : (
-                                    <GrMoon onClick={handleChangeTheme} className="theme-icon" />
-                                ))}
-                                <div className={`hamburger-lines ${theme}`}>
-                                    <span className="line line1"></span>
-                                    <span className="line line2"></span>
-                                    <span className="line line3"></span>
+                                    <div className="logo">
+                                        <Link to="/">
+                                            {theme === "light" ? (
+                                                <img src={logo_light} alt="logo" />
+                                            ) : (
+                                                <img src={logo_dark} alt="logo" />
+                                            )}
+                                        </Link>
+                                    </div>
+                                )}
+                                <div className="burger-menu">
+                                    {!isChecked && (theme === "dark" ? (
+                                        <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                                    ) : (
+                                        <GrMoon onClick={handleChangeTheme} className="theme-icon" />
+                                    ))}
+                                    <div className={`hamburger-lines ${theme}`}>
+                                        <span className="line line1"></span>
+                                        <span className="line line2"></span>
+                                        <span className="line line3"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="menu-items">

@@ -51,12 +51,7 @@ import values_icon6 from "../../assets/images/icon6.png"
 const Home = ({ theme, lang, screen }) => {
     const commentDatas = [commentObjects1, commentObjects2, commentObjects3]
     const valuesDatas = [valuesObject1, valuesObject2, valuesObject3, valuesObject4, valuesObject5, valuesObject6]
-
-    const [currentDotDatas, setCurrentDotDatas] = useState({
-        title: "Brand identity and logo design",
-        text: "The first step for high quality brand is to have quality logo and design!",
-        src: hero1
-    })
+    
     const [currentCommentDatas, setCurrentCommentDatas] = useState(commentObjects1)
 
     const widthCondition = screen >= 600
@@ -84,9 +79,6 @@ const Home = ({ theme, lang, screen }) => {
 
     const [currentValuesDatas, setCurrentValuesDatas] = useState(valuesObject1)
 
-    const dotHandler = (e) => {
-        setCurrentDotDatas({ title: e.title, text: e.text, src: e.src })
-    }
 
     const leftArrowHandler = (initialDatas, currentDatas, setCurrentDatas) => {
         for (let i = 0; i < initialDatas.length; i++) {

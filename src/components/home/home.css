@@ -53,7 +53,7 @@
 .header.container {
     position: relative;
     flex-direction: row;
-    height: 100vh;
+    height: 80vh;
     transition: 0.5s all ease-in-out;
 }
 
@@ -189,7 +189,7 @@ span.content-box__text {
 .items-container .item .service-title {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 3vw;
+    font-size: 3rem;
     text-align: center;
     color: #fff;
 }
@@ -443,7 +443,7 @@ span.content-box__text {
     display: block;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1200px) {
    
     .title {
         font-size: 2.5rem;
@@ -457,8 +457,16 @@ span.content-box__text {
         font-size: 1.5rem;
     }
 
+    .slide{
+        height: 100vh;
+    }
+
     .button {
         font-size: 1rem;
+    }
+
+    .items-container .item .service-title{
+        font-size: 1.7rem;
     }
 
     .button.view {
@@ -571,13 +579,16 @@ span.content-box__text {
     }
     .header.container {
         flex-direction: column;
-        height: 100vh;
+        height: 90vh;
     }
 
+    .items-container .item .service-title{
+        font-size: 1rem;
+    }
     .content-box {
         width: 100%;
         order: 2;
-        padding-bottom: 6rem;
+        padding-bottom: 2rem;
     }
 
     .dot-container {
@@ -766,5 +777,10 @@ span.content-box__text {
 
     .apostrof{
         width: 10%;
+    }
+
+    .chat-icon{
+        width: 50px;
+        height: 50px;
     }
 }
