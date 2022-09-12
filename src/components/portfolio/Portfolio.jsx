@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useLayoutEffectuseLayoutEffect } from "react"
 import { Link } from "react-router-dom"
 import "./portfolio.css"
 import portfolio1 from "../../assets/images/portfolio1.png"
@@ -10,6 +10,46 @@ import portfolio6 from "../../assets/images/portfolio6.png"
 import { categoriesDatas } from "./datas/categoriesDatas"
 
 const Portfolio = ({ theme, lang, screen }) => {
+    const [projects, setProjects] = useState();
+
+    useLayoutEffect(() => {
+		let isMounted = true;
+
+		if (isMounted) {
+            getProjects();
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, []);
+
+    async function getProjects(){
+        let response = await fetch(
+			"http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/portfolio-list/"
+		, {
+			headers : { 
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json'
+			},
+            method : "GET",
+            mode: 'cors',
+	  
+		  });
+		let obj = await response.json();
+        let c = [];
+        let k = 0;
+
+        for(let i = 0; i < obj.length; i++){
+            if(obj[i].active){
+                c[k] = obj[i];
+                k++;
+            }
+        }
+
+		setProjects(c);
+    }
+
     const handleUnderLine = (e) => {
         categoriesDatas.forEach((item) => {
             e.target.innerText == item.title
@@ -33,22 +73,71 @@ const Portfolio = ({ theme, lang, screen }) => {
                 </div>
                 <div className="images-wrapper">
                     <div className="upper-col">
-                        <div className="portfolio-item">
-                            <Link to="/portfolio-info">
+                        {projects?.map((project, index) =>(
+                        (index < 3) ? (<div className="portfolio-item">
+                            <Link to="/portfolio-info" state={{title: project?.title}}>
                                 <img
-                                    src={portfolio1}
+                                    src={project.div_image}
                                     alt="portfolio_image"
                                     className="portfolio-images"
                                 />
                                 <div className="title-box">
                                     <h2 className="image title">
-                                        Dolice & Garbana
+                                        {project.title}
                                     </h2>
                                 </div>
                             </Link>
                         </div>
+                        ) : (
+                            <></>
+                        )
+                        ))}
+                    </div>
 
-                        <div className="portfolio-item">
+                        {projects?.map((project, index) => (
+                            (index == 3) ? (
+                                <div className="portfolio-item middle">
+                                <Link to="/portfolio-info" state={{title: project?.title}}>
+                                <img
+                                    src={project.div_image}
+                                    alt="portfolio_image"
+                                    className="portfolio-images"
+                                />
+                                <div className="title-box">
+                                    <h2 className="image title">
+                                        {project.title}
+                                    </h2>
+                                </div>
+                            </Link>
+                            </div>
+                            ) :(
+                                <></>
+                            )
+                        ))}
+
+                        <div className="lower-col">
+                            {projects?.map((project, index) =>(
+                                (index > 3) ? (
+                                 <div className="portfolio-item">
+                                 <Link to="/portfolio-info" state={{title: project?.title}}>
+                                     <img
+                                         src={project.div_image}
+                                         alt="portfolio_image"
+                                         className="portfolio-images"
+                                     />
+                                     <div className="title-box">
+                                         <h2 className="image title">
+                                             {project.title}
+                                         </h2>
+                                     </div>
+                                 </Link>
+                             </div>
+                                ) : (
+                                    <></>
+                                )
+                            ))}
+                        </div>
+                        {/* <div className="portfolio-item">
                             <Link to="/portfolio-info">
                                 <img
                                     src={portfolio2}
@@ -123,7 +212,7 @@ const Portfolio = ({ theme, lang, screen }) => {
                                     </h2>
                                 </div>
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 {/* <div className="grid-images-wrapper">
@@ -212,7 +301,6 @@ const Portfolio = ({ theme, lang, screen }) => {
                         </Link>
                     </div> 
                 </div>*/}
-            </div>
         </>
     )
 }

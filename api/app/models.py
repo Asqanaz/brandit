@@ -11,6 +11,7 @@ class ProjectType(models.Model):
 class ProjectDesign(models.Model):
     title = models.CharField(blank=True, max_length=100)
     image = models.FileField(blank=True, upload_to='images/portfolio/project-design')
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -26,6 +27,7 @@ class Portfolio(models.Model):
     brief_armenian = models.TextField(default='')
     project_type = models.ForeignKey(to=ProjectType, on_delete=models.CASCADE, default='', to_field='title')
     project_design = models.ManyToManyField(ProjectDesign)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -36,6 +38,7 @@ class WhatOurClientsSay(models.Model):
     description_armenian = models.TextField(default='')
     image = models.FileField(blank=True, upload_to='images/what-our-clients-say')
     username = models.CharField(blank=True, max_length=50) 
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username

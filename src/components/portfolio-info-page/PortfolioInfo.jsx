@@ -1,4 +1,4 @@
-import React from "react"
+import {React, useState, useLayoutEffect} from "react"
 import "./portfolioinfo.css"
 import project_image from "../../assets/images/project-image.png"
 import design1 from "../../assets/images/design1.png"
@@ -14,8 +14,46 @@ import similiar1 from "../../assets/images/similiar1.png"
 import similiar2 from "../../assets/images/similiar2.png"
 import similiar3 from "../../assets/images/similiar3.png"
 import similiar4 from "../../assets/images/similiar4.png"
+import { useLocation } from "react-router-dom";
 
 const PortfolioInfo = () => {
+    const location = useLocation({});
+	const { title } = location.state;
+    const [project, setProject] = useState();
+
+    useLayoutEffect(() => {
+		let isMounted = true;
+
+		if (isMounted) {
+            getProject();
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, []);
+
+    async function getProject() {
+		let response = await fetch(
+			"http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/portfolio-list/"
+		, {
+			headers : { 
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json'
+			},
+            method : "GET",
+            mode: 'cors',
+	  
+		  });
+		let obj = await response.json();
+
+        for(let i = 0; i < obj.length; i++){
+            if(obj[i].title === title){
+                setProject(obj[i]);
+            }
+        }
+	}
+
     return (
         <div className="portfolioinfo container">
             <h2 className="title">Brandit</h2>
@@ -23,35 +61,25 @@ const PortfolioInfo = () => {
             <div className="portfolio-info-part">
                 <div className="info-part-items">
                     <span className="info-title">Client</span>
-                    <h4 className="info-text">Brandit</h4>
+                    <h4 className="info-text">{project?.title}</h4>
                 </div>
                 <div className="info-part-items center">
                     <span className="info-title">Designer</span>
-                    <h4 className="info-text">Mark Jude</h4>
+                    <h4 className="info-text">{project?.designer}</h4>
                 </div>
                 <div className="info-part-items center">
                     <span className="info-title">Year</span>
-                    <h4 className="info-text">2022</h4>
+                    <h4 className="info-text">{project?.year}</h4>
                 </div>
                 <div className="info-part-items end">
                     <span className="info-title">Category</span>
-                    <h4 className="info-text">Branding</h4>
+                    <h4 className="info-text">{project?.project_type}</h4>
                 </div>
             </div>
             <div className="content-container">
                 <h3 className="content-title">Brief</h3>
                 <p className="content-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Natoque vel pellentesque nulla mauris et vitae ultricies
-                    lorem. Dignissim pulvinar auctor vel aenean ornare diam
-                    vulputate. Amet purus nulla mi consequat libero augue
-                    aliquet id diam. Leo, nisi faucibus maecenas facilisis.
-                    Mauris venenatis augue a semper. Dui et massa tellus in
-                    viverra in lorem elementum, sed. Suspendisse ut dolor et
-                    fermentum consectetur. Lectus eget bibendum viverra arcu,
-                    sit duis ultrices. Sit ultricies nulla dictumst vestibulum
-                    at id. Tellus ut viverra massa amet habitasse arcu, sapien
-                    aliquam.
+                    {project?.brief}
                 </p>
             </div>
 

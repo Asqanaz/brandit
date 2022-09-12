@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useLayoutEffect } from "react"
 import { Link } from "react-router-dom"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -94,6 +94,64 @@ const Home = ({ theme, lang, screen }) => {
     ]
 
     const [currentValuesDatas, setCurrentValuesDatas] = useState(valuesObject1)
+    const [ourWorks, setOurWorks] = useState();
+    const [clients, setClients] = useState();
+    const [messageBody, setMessageBody] = useState();
+
+    useLayoutEffect(() => {
+		let isMounted = true;
+
+		if (isMounted) {
+            getOurWorks();
+            getClients();
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, []);
+
+    async function getOurWorks() {
+		let response = await fetch(
+			"http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/our-work-list/"
+		, {
+			headers : { 
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json'
+			},
+            method : "GET",
+            mode: 'cors',
+	  
+		  });
+		let obj = await response.json();
+		setOurWorks(obj);
+	}
+
+    async function getClients() {
+		let response = await fetch(
+			"http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/what-our-clients-say-list/"
+		, {
+			headers : { 
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json'
+			},
+            method : "GET",
+            mode: 'cors',
+	  
+		  });
+		let obj = await response.json();
+        let c = [];
+        let k = 0;
+
+        for(let i = 0; i < obj.length; i++){
+            if(obj[i].active){
+                c[k] = obj[i];
+                k++;
+            }
+        }
+
+		setClients(c);
+	}
 
     const dotHandler = (e) => {
         setCurrentDotDatas({ title: e.title, text: e.text, src: e.src })
@@ -144,6 +202,29 @@ const Home = ({ theme, lang, screen }) => {
             )
         }
     }
+    const handleInputChange = (e) => {
+        setMessageBody({
+            ...messageBody, [e.target.name]: e.target.value
+        })
+
+        console.log(e.target.name + ": " + e.target.value);
+    }
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+		e.target.reset();
+		let response = fetch(
+			"http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/contact-us-list/",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},              
+				body: JSON.stringify(messageBody),
+			}
+		).then(response => console.log(response.status));
+    }
+
     return (
         <>
             <section className="header-section">
@@ -203,28 +284,25 @@ const Home = ({ theme, lang, screen }) => {
                     </p>
                     <div className="slide">
                         <div className="row upper">
-                            <img src={projects1} alt="" />
+                            {ourWorks?.map((work) => (
+                                <img src={work.image} alt="" />
+                            ))}
+                            {/* <img src={projects1} alt="" />
                             <img src={projects2} alt="" />
                             <img src={projects3} alt="" />
                             <img src={projects4} alt="" />
                             <img src={projects5} alt="" />
-                            <img src={projects6} alt="" />
+                            <img src={projects6} alt="" /> */}
                         </div>
                         <div className="row middle">
-                            <img src={projects7} alt="" />
-                            <img src={projects8} alt="" />
-                            <img src={projects9} alt="" />
-                            <img src={projects10} alt="" />
-                            <img src={projects11} alt="" />
-                            <img src={projects12} alt="" />
+                            {ourWorks?.map((work) => (
+                                <img src={work.image} alt="" />
+                            ))}
                         </div>
                         <div className="row lower">
-                            <img src={projects1} alt="" />
-                            <img src={projects2} alt="" />
-                            <img src={projects3} alt="" />
-                            <img src={projects4} alt="" />
-                            <img src={projects5} alt="" />
-                            <img src={projects6} alt="" />
+                            {ourWorks?.map((work) => (
+                                <img src={work.image} alt="" />
+                            ))}
                         </div>
                     </div>
                     <button className="button view">
@@ -248,7 +326,36 @@ const Home = ({ theme, lang, screen }) => {
                     <div className="items-container">
                         {widthCondition ? (
                             <>
-                                <div className="item-client">
+                                {clients?.map((client) => (
+                                    <div className="item-client">
+                                    <img
+                                        src={apostrof}
+                                        alt=""
+                                        className="apostrof left"
+                                    />
+                                    <img
+                                        src={apostrof2}
+                                        alt=""
+                                        className="apostrof right"
+                                    />
+                                    <p className="comment">
+                                        {client.description}
+                                    </p>
+
+                                    <div className="user-part">
+                                        <div className="for-avatar"></div>
+                                        <div className="user-info">
+                                            <span className="user-name">
+                                                {client.username}
+                                            </span>
+                                            <span className="user-login">
+                                                {client.username}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                ))}
+                                {/* <div className="item-client">
                                     <img
                                         src={apostrof}
                                         alt=""
@@ -337,7 +444,7 @@ const Home = ({ theme, lang, screen }) => {
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </>
                         ) : (
                             <>
@@ -373,7 +480,40 @@ const Home = ({ theme, lang, screen }) => {
                                         )
                                     }
                                 />
-                                <div className="item-client carousel">
+                                {clients?.map((client) => (
+                                    <div className="item-client carousel">
+                                    <img
+                                        src={apostrof}
+                                        alt=""
+                                        className="apostrof left"
+                                    />
+                                    <img
+                                        src={apostrof2}
+                                        alt=""
+                                        className="apostrof right"
+                                    />
+                                    <p className="comment">
+                                        {client.description}
+                                    </p>
+                                    <div className="user-part">
+                                        <div
+                                            className="for-avatar"
+                                            style={{
+                                                background: `url(${client.image}) no-repeat center`,
+                                                backgroundSize: "cover"
+                                            }}></div>
+                                        <div className="user-info">
+                                            <span className="user-name">
+                                                {client.username}
+                                            </span>
+                                            <span className="user-login">
+                                                {client.username}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                ))}
+                                {/* <div className="item-client carousel">
                                     <img
                                         src={apostrof}
                                         alt=""
@@ -403,7 +543,7 @@ const Home = ({ theme, lang, screen }) => {
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </>
                         )}
                     </div>
@@ -582,13 +722,15 @@ const Home = ({ theme, lang, screen }) => {
                         <p className="text">
                             Send us a message today to get started.
                         </p>
-                        <form className="form">
-                            <input type="text" placeholder="Name" />
-                            <input type="email" placeholder="Email" />
+                        <form className="form" onSubmit={sendMessage}>
+                            <input type="text" name="name" placeholder="Name" onChange={handleInputChange}/>
+                            <input type="email" name="email" placeholder="Email" onChange={handleInputChange}/>
                             <input
                                 type="text"
+                                name="message"
                                 placeholder="Message"
                                 className="message"
+                                onChange={handleInputChange}
                             />
                             <button className="form-button">
                                 Send Message
