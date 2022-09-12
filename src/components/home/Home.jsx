@@ -93,6 +93,8 @@ const Home = ({ theme, lang, screen }) => {
         }
     ]
 
+    const serviceRef = useRef()
+
     const [currentValuesDatas, setCurrentValuesDatas] = useState(valuesObject1)
     const [ourWorks, setOurWorks] = useState();
     const [clients, setClients] = useState();
@@ -163,10 +165,6 @@ const Home = ({ theme, lang, screen }) => {
 
 		setClients(c);
 	}
-
-    const dotHandler = (e) => {
-        setCurrentDotDatas({ title: e.title, text: e.text, src: e.src })
-    }
 
     const leftArrowHandler = (initialDatas, currentDatas, setCurrentDatas) => {
         for (let i = 0; i < initialDatas.length; i++) {

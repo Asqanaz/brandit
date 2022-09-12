@@ -18,28 +18,30 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     const [isChecked, setIsChecked] = useState(false)
 
     const handleNavbarToggle = (e) => {
+        if (e.clientY >= 180) {
+            navbarRef.current.style.top = -90 + "px"
+            navbarRef.current.style.transition = 0.7 + "s"
+        } else {
+            navbarRef.current.style.top = 0
+            navbarRef.current.style.transition = 0.7 + "s"
+        }
+    }
+
+    const handleScroll = () => {
         if (window.matchMedia("(min-width: 600px)").matches) {
-            if (e.clientY >= 180) {
+            if (document.documentElement.scrollTop > 600) {
                 navbarRef.current.style.top = -90 + "px"
-                navbarRef.current.style.transition = 0.7 + "s"
+                window.addEventListener("mousemove", handleNavbarToggle)
             } else {
                 navbarRef.current.style.top = 0
-                navbarRef.current.style.transition = 0.7 + "s"
+                window.removeEventListener("mousemove", handleNavbarToggle)
             }
         }
     }
     useEffect(() => {
-        document.addEventListener("scroll", function () {
-            if (document.documentElement.scrollTop > 600) {
-                window.addEventListener("mousemove", handleNavbarToggle)
-                navbarRef.current.style.top = -90 + "px"
-            } else {
-                window.removeEventListener("mousemove", handleNavbarToggle)
-                navbarRef.current.style.top = 0
-            }
-        })
+        document.addEventListener("scroll", handleScroll)
 
-        return () => document.removeEventListener("mousemove", handleNavbarToggle)
+        return () => document.removeEventListener("scroll", handleScroll)
     }, [])
 
     const bolderFont = (e) => {
@@ -117,26 +119,26 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                 onChange={handleChecked}
                                 checked={isChecked}
                             />
-                            {isChecked ? (
-                                <div className="navbar__settings">
-                                    <svg
-                                        width="2"
-                                        height="34"
-                                        viewBox="0 0 2 34"
-                                        fill="none"
-                                        className="vertical-line"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M1 0V34"
-                                            stroke={theme === "light" ? "black" : "white"}
-                                            strokeWidth="2"
-                                        />
-                                    </svg>
-                                    <span>{lang}</span>
-                                    <IoIosArrowDown className="arrow-down" />
-                                </div>
-                            ) : (
-                                <div className="logo">
+                            <div className="logo">
+                                {isChecked ? (
+                                    <>
+                                        <svg
+                                            width="2"
+                                            height="34"
+                                            viewBox="0 0 2 34"
+                                            fill="none"
+                                            className="vertical-line"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1 0V34"
+                                                stroke={theme === "light" ? "black" : "white"}
+                                                strokeWidth="2"
+                                            />
+                                        </svg>
+                                        <span>{lang}</span>
+                                        <IoIosArrowDown className="arrow-down" />
+                                    </>
+                                ) : (
                                     <Link to="/">
                                         {theme === "light" ? (
                                             <img src={logo_light} alt="logo" />
@@ -144,8 +146,8 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                             <img src={logo_dark} alt="logo" />
                                         )}
                                     </Link>
-                                </div>
-                            )}
+                                )}
+                            </div>
                             <div className="burger-menu">
                                 {!isChecked &&
                                     (theme === "dark" ? (
