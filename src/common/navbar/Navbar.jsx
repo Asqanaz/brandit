@@ -18,29 +18,32 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
     const [isChecked, setIsChecked] = useState(false)
 
     const handleNavbarToggle = (e) => {
-         {
-            if (e.clientY >= 180) {
+        if (e.clientY >= 180) {
+            navbarRef.current.style.top = -90 + "px"
+            navbarRef.current.style.transition = 0.7 + "s"
+        } else {
+            navbarRef.current.style.top = 0
+            navbarRef.current.style.transition = 0.7 + "s"
+        }
+    }
+
+    function handleScroll() {
+        if (window.matchMedia("(min-width: 600px)").matches) {
+            if (document.documentElement.scrollTop > 700) {
                 navbarRef.current.style.top = -90 + "px"
-                navbarRef.current.style.transition = 0.7 + "s"
-            } else {
+                document.addEventListener("mousemove", handleNavbarToggle)
+                
+            } 
+            else {
                 navbarRef.current.style.top = 0
-                navbarRef.current.style.transition = 0.7 + "s"
+                document.removeEventListener("mousemove", handleNavbarToggle)
             }
+            console.log(document.documentElement.scroll)
+           
         }
     }
     useEffect(() => {
-        window.addEventListener("scroll", function(){
-            if (window.matchMedia("(min-width: 600px)").matches){
-                if(document.documentElement.scrollTop > 700){
-                    navbarRef.current.style.top = -90 + "px"
-                    document.addEventListener("mousemove", handleNavbarToggle)
-                }
-                else{
-                    navbarRef.current.style.top = 0
-                    document.removeEventListener("mousemove", handleNavbarToggle)
-                }
-                console.log(document.documentElement.scrollTop)
-            }})
+        window.addEventListener("scroll", handleScroll)
 
         return () => document.removeEventListener("mousemove", handleNavbarToggle)
     }, [])
@@ -151,11 +154,12 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                     </div>
                                 )}
                                 <div className="burger-menu">
-                                    {!isChecked && (theme === "dark" ? (
-                                        <BsSun onClick={handleChangeTheme} className="theme-icon" />
-                                    ) : (
-                                        <GrMoon onClick={handleChangeTheme} className="theme-icon" />
-                                    ))}
+                                    {!isChecked &&
+                                        (theme === "dark" ? (
+                                            <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                                        ) : (
+                                            <GrMoon onClick={handleChangeTheme} className="theme-icon" />
+                                        ))}
                                     <div className={`hamburger-lines ${theme}`}>
                                         <span className="line line1"></span>
                                         <span className="line line2"></span>
