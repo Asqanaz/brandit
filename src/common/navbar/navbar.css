@@ -229,6 +229,7 @@ a:focus {
 .logo {
     position: absolute;
     height: 60px;
+    top: 0;
     left: 5%;
     z-index: 2;
     display: flex;
@@ -275,6 +276,10 @@ a:focus {
     .theme-icon {
         font-size: 2rem;
         margin-right: 0.8rem;
+    }
+
+    .vertical-line{
+        width: 5px;
     }
 
 

@@ -111,56 +111,55 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                 <nav>
                     <div className={`mobile-navbar ${theme}`} ref={mobile_navbarRef}>
                         <div className="nav-container">
-                                <input
-                                    className="checkbox"
-                                    type="checkbox"
-                                    name=""
-                                    id=""
-                                    ref={inputCheck}
-                                    onChange={handleChecked}
-                                    checked={isChecked}
-                                />
-                                <div className="logo">
-                                    {isChecked ? (
-                                        <>
-                                            <svg
-                                                width="2"
-                                                height="34"
-                                                viewBox="0 0 2 34"
-                                                fill="none"
-                                                className="vertical-line"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M1 0V34"
-                                                    stroke={theme === "light" ? "black" : "white"}
-                                                    strokeWidth="2"
-                                                />
-                                            </svg>
-                                            <span>{lang}</span>
-                                            <IoIosArrowDown className="arrow-down" />
-                                        </>
-                                    ) : (
-                                        <Link to="/">
-                                            {theme === "light" ? (
-                                                <img src={logo_light} alt="logo" />
-                                            ) : (
-                                                <img src={logo_dark} alt="logo" />
-                                            )}
-                                        </Link>
-                                    )}
-                                </div>
-                                <div className="burger-menu">
-                                    {!isChecked &&
-                                        (theme === "dark" ? (
-                                            <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                            <input
+                                className="checkbox"
+                                type="checkbox"
+                                name=""
+                                id=""
+                                ref={inputCheck}
+                                onChange={handleChecked}
+                                checked={isChecked}
+                            />
+                            <div className="logo">
+                                {isChecked ? (
+                                    <>
+                                        <svg
+                                            width="2"
+                                            height="34"
+                                            viewBox="0 0 2 34"
+                                            fill="none"
+                                            className="vertical-line"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1 0V34"
+                                                stroke={theme === "light" ? "black" : "white"}
+                                                strokeWidth="2"
+                                            />
+                                        </svg>
+                                        <span>{lang}</span>
+                                        <IoIosArrowDown className="arrow-down" />
+                                    </>
+                                ) : (
+                                    <Link to="/">
+                                        {theme === "light" ? (
+                                            <img src={logo_light} alt="logo" />
                                         ) : (
-                                            <GrMoon onClick={handleChangeTheme} className="theme-icon" />
-                                        ))}
-                                    <div className={`hamburger-lines ${theme}`}>
-                                        <span className="line line1"></span>
-                                        <span className="line line2"></span>
-                                        <span className="line line3"></span>
-                                    </div>
+                                            <img src={logo_dark} alt="logo" />
+                                        )}
+                                    </Link>
+                                )}
+                            </div>
+                            <div className="burger-menu">
+                                {!isChecked &&
+                                    (theme === "dark" ? (
+                                        <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                                    ) : (
+                                        <GrMoon onClick={handleChangeTheme} className="theme-icon" />
+                                    ))}
+                                <div className={`hamburger-lines ${theme}`}>
+                                    <span className="line line1"></span>
+                                    <span className="line line2"></span>
+                                    <span className="line line3"></span>
                                 </div>
                             </div>
                             <div className="menu-items">
@@ -178,6 +177,7 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                 </li>
                             </div>
                         </div>
+                    </div>
                 </nav>
             )}
         </>
