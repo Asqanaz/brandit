@@ -32,14 +32,11 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
             if (document.documentElement.scrollTop > 700) {
                 navbarRef.current.style.top = -90 + "px"
                 document.addEventListener("mousemove", handleNavbarToggle)
-                
-            } 
-            else {
+            } else {
                 navbarRef.current.style.top = 0
                 document.removeEventListener("mousemove", handleNavbarToggle)
             }
             console.log(document.documentElement.scroll)
-           
         }
     }
     useEffect(() => {
@@ -114,7 +111,6 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                 <nav>
                     <div className={`mobile-navbar ${theme}`} ref={mobile_navbarRef}>
                         <div className="nav-container">
-                            <div className="nav-wrapper">
                                 <input
                                     className="checkbox"
                                     type="checkbox"
@@ -124,26 +120,26 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                     onChange={handleChecked}
                                     checked={isChecked}
                                 />
-                                {isChecked ? (
-                                    <div className="navbar__settings">
-                                        <svg
-                                            width="2"
-                                            height="34"
-                                            viewBox="0 0 2 34"
-                                            fill="none"
-                                            className="vertical-line"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M1 0V34"
-                                                stroke={theme === "light" ? "black" : "white"}
-                                                strokeWidth="2"
-                                            />
-                                        </svg>
-                                        <span>{lang}</span>
-                                        <IoIosArrowDown className="arrow-down" />
-                                    </div>
-                                ) : (
-                                    <div className="logo">
+                                <div className="logo">
+                                    {isChecked ? (
+                                        <>
+                                            <svg
+                                                width="2"
+                                                height="34"
+                                                viewBox="0 0 2 34"
+                                                fill="none"
+                                                className="vertical-line"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M1 0V34"
+                                                    stroke={theme === "light" ? "black" : "white"}
+                                                    strokeWidth="2"
+                                                />
+                                            </svg>
+                                            <span>{lang}</span>
+                                            <IoIosArrowDown className="arrow-down" />
+                                        </>
+                                    ) : (
                                         <Link to="/">
                                             {theme === "light" ? (
                                                 <img src={logo_light} alt="logo" />
@@ -151,8 +147,8 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                                 <img src={logo_dark} alt="logo" />
                                             )}
                                         </Link>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                                 <div className="burger-menu">
                                     {!isChecked &&
                                         (theme === "dark" ? (
@@ -182,7 +178,6 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                 </li>
                             </div>
                         </div>
-                    </div>
                 </nav>
             )}
         </>
