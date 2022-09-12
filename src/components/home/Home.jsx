@@ -259,8 +259,7 @@ const Home = ({ theme, lang, screen }) => {
                                         </button>
                                     </Link>
                                 </div>
-                                <div className="image-container">
-                                    <img src={item.src} alt="" />
+                                <div className="image-container" style={{backgroundImage: `url(${item.src})`}}>
                                 </div>
                             </div>
                         </div>

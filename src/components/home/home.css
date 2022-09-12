@@ -45,8 +45,8 @@
 .header.container {
     position: relative;
     flex-direction: row;
-    height: 100vh;
-    transition: 0.5s all ease-in-out
+    height: 80vh;
+    transition: 0.5s all ease-in-out;
 }
 
 .dot-container {
@@ -60,7 +60,7 @@
 }
 
 .content-box {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,12 +76,10 @@
 }
 
 .content-box__title {
-    /* font-size: 4.5vw; */
     font-size: 4rem;
 }
 
 .content-box__text {
-    /* font-size: 1.8vw; */
     font-size: 2rem;
     margin-top: 1%;
 }
@@ -91,10 +89,12 @@ span.content-box__text {
 }
 
 .image-container {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .button.view {
@@ -178,7 +178,7 @@ span.content-box__text {
 .service-title {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 3vw;
+    font-size: 2.7rem;
     text-align: center;
     color: #fff;
 }
@@ -433,7 +433,7 @@ span.content-box__text {
 }
 
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1200px) {
     .title {
         font-size: 2.5rem;
     }
@@ -483,6 +483,10 @@ span.content-box__text {
 
     .text{
         font-size: 1.4rem;
+    }
+
+    .items-container .item .service-title{
+        font-size: 1.7rem;
     }
 }
 
@@ -705,5 +709,9 @@ span.content-box__text {
 
     .button-arrow{
         width: .5rem;
+    }
+
+    .items-container .item .service-title{
+        font-size: 1rem;
     }
 }

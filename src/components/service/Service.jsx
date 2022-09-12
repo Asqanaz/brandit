@@ -1,9 +1,9 @@
 import React from "react"
 import "./service.css"
-const Service = () => {
+const Service = ({theme}) => {
     return (
         <>
-            <div className="service container">
+            <div className={`service container ${theme}`}>
                 <h2 className="title">Services</h2>
                 <p className="text">
                     We specialize in transforming your business ideas into
