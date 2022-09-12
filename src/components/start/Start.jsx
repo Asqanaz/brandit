@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import "./start.css"
 import inpchecked from "../../assets/images/checkbox-checked.svg"
 import unchecked from "../../assets/images/checkbox-unchecked.svg"
@@ -20,14 +20,93 @@ const Start = ({theme, lang, screen}) => {
     const [priceCallChecked, setPriceCallChecked] = useState(true)
     const [scheduleCallChecked, setScheduleCallChecked] = useState(false)
     const [value, setValue] = useState()
+    const [priceOffer, setPriceOffer] = useState();
+    const [scheduleACall, setScheduleACall] = useState();
 
+    const dateRef = useRef()
     const priceCallClick = () => {
         setPriceCallChecked(true)
         setScheduleCallChecked(false)
     }
+
     const scheduleCallClick = () => {
         setScheduleCallChecked(true)
         setPriceCallChecked(false)
+    }
+
+    const onValueChange = (e) => {
+        if(priceCallChecked){
+            setPriceOffer({
+                ...priceOffer, [e.target.name]: e.target.value
+            })
+        }
+
+        if(scheduleCallChecked){    
+            setScheduleACall({
+                ...scheduleACall, [e.target.name]: e.target.value
+            })
+        }
+    }
+
+    const onSelectChange = (e) => {
+        if(priceCallChecked){
+            setPriceOffer({
+                ...priceOffer, ['project_type']: e.label
+            })
+        }
+
+        if(scheduleCallChecked){    
+            setScheduleACall({
+                ...scheduleACall, ['project_type']: e.label
+            })
+        }
+    }
+
+    const sendMessage = (e) => {
+        if(priceCallChecked){
+            console.log(priceOffer)
+            e.preventDefault();
+		    e.target.reset();
+		    let response = fetch(
+			    "http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/price-offer-list/",
+			    {
+				    method: "POST",
+				    headers: {
+					    "Content-Type": "application/json",
+				    },              
+				    body: JSON.stringify(priceOffer),
+			    }
+		    ).then(response => console.log(response.status));
+        }
+
+        if(scheduleCallChecked){
+            e.preventDefault();
+		    e.target.reset();
+            console.log(scheduleACall)
+		    let response = fetch(
+			    "http://localhost:8000/pbE4HxorpVi2wTDUm7EL1CXwmAaEfButHOosdjfosa9H/schedule-call-list/",
+			    {
+				    method: "POST",
+				    headers: {
+					    "Content-Type": "application/json",
+				    },              
+				    body: JSON.stringify(scheduleACall),
+			    }
+		    ).then(response => console.log(response.status));
+        }
+    }
+
+    const onDateChange = (e) => {
+        setValue(e)
+        setScheduleACall({
+            ...scheduleACall, ['date']: String(e)
+        })
+    }
+
+    const onTimeChange = (e) => {
+        setScheduleACall({
+            ...scheduleACall, ['time']: e._i
+        })
     }
 
     return (
@@ -35,7 +114,7 @@ const Start = ({theme, lang, screen}) => {
             <div className={`start-wrapper ${theme}`}>
                 <h2 className="title">Start a Project</h2>
                 <p className="text">What do you want?</p>
-                <form action="" className="start-form">
+                <form action="" className="start-form" onSubmit={sendMessage}>
                     <div className="checkbox-container">
                         <label htmlFor="price-offer" className="checkbox-label">
                             <span>Price Offer</span>
@@ -74,22 +153,24 @@ const Start = ({theme, lang, screen}) => {
                             }
                         </label>
                     </div>
-                    {priceCallChecked ? (
-                        <>
                             <div className="select-container">
                                 <h3 className="subform-title type">
                                     Project type
                                 </h3>
                                 <Select
                                     options={options}
-                                    className="project-select"
+                                    className="project-select"   
+
                                     classNamePrefix="select"
                                     isMulti={false}
                                     isSearchable={false}
                                     isClearable={false}
                                     placeholder="Select Project types"
+                                    onChange={onSelectChange}
                                 />
                             </div>
+                    {priceCallChecked ? (
+                        <>
                             <div className="company-details">
                                 <h3 className="subform-title">
                                     Company Details
@@ -99,11 +180,13 @@ const Start = ({theme, lang, screen}) => {
                                     className="com-details-input"
                                     required
                                     placeholder="*Company Name"
+                                    onChange={onValueChange}
+                                    name="company_name"
                                 />
                                 <textarea
                                     cols="30"
                                     rows="10"
-                                    placeholder="Tell us about your project"></textarea>
+                                    placeholder="Tell us about your project" onChange={onValueChange} name="about_project"></textarea>
                                 <label htmlFor="file" className="file-label">
                                     <img src={file_icon} alt="" />
                                     <input
@@ -124,12 +207,16 @@ const Start = ({theme, lang, screen}) => {
                                     <input
                                         type="text"
                                         placeholder="*First Name"
+                                        onChange={onValueChange}
+                                        name="firstname"
                                     />
-                                    <input type="text" placeholder="*Surname" />
-                                    <input type="email" placeholder="*Email" />
+                                    <input type="text" placeholder="*Surname" onChange={onValueChange} name="surname" />
+                                    <input type="email" placeholder="*Email" onChange={onValueChange} name="email" />
                                     <input
                                         type="tel"
                                         placeholder="*Phone Number"
+                                        onChange={onValueChange}
+                                        name="phone"
                                     />
                                 </div>
                             </div>
@@ -139,19 +226,6 @@ const Start = ({theme, lang, screen}) => {
                         </>
                     ) : (
                         <>
-                            <div className="select-container ${theme}">
-                                <h3 className="subform-title type">
-                                    Project types
-                                </h3>
-                                <Select
-                                    className={`project-select ${theme}`}
-                                    classNamePrefix="select"
-                                    isMulti={false}
-                                    isSearchable={false}
-                                    isClearable={false}
-                                    placeholder="Select Project types"
-                                />
-                            </div>
                             <div className="personal-details schedule">
                                 <h3 className="subform-title">
                                     Personal Details
@@ -160,12 +234,16 @@ const Start = ({theme, lang, screen}) => {
                                     <input
                                         type="text"
                                         placeholder="*First Name"
+                                        onChange={onValueChange}
+                                        name="firstname"
                                     />
-                                    <input type="text" placeholder="*Surname" />
-                                    <input type="email" placeholder="*Email" />
+                                    <input type="text" placeholder="*Surname" onChange={onValueChange} name="surname" />
+                                    <input type="email" placeholder="*Email" onChange={onValueChange} name="email" />
                                     <input
                                         type="tel"
                                         placeholder="*Phone Number"
+                                        onChange={onValueChange}
+                                        name="phone"
                                     />
                                 </div>
                             </div>
@@ -174,10 +252,10 @@ const Start = ({theme, lang, screen}) => {
                                 <div className="date-inputs">
                                     <DatePicker
                                         selected={value}
-                                        onChange={(date) => setValue(date)}
                                         placeholderText="Date"
+                                        onChange={onDateChange}
                                     />
-                                    <TimePicker placeholder="Time" clearIcon />
+                                    <TimePicker placeholder="Time" clearIcon onChange={onTimeChange}/>
                                 </div>
                             </div>
                             <button className="start-form-button" type="submit">

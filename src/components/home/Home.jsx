@@ -124,7 +124,18 @@ const Home = ({ theme, lang, screen }) => {
 	  
 		  });
 		let obj = await response.json();
-		setOurWorks(obj);
+
+        let c = [];
+        let k = 0;
+        for(let i = 0; i < obj.length; i++){
+            if(obj[i].active)
+            {
+                c[k] = obj[i];
+                k++;
+            }
+        }
+
+		setOurWorks(c);
 	}
 
     async function getClients() {
@@ -284,8 +295,12 @@ const Home = ({ theme, lang, screen }) => {
                     </p>
                     <div className="slide">
                         <div className="row upper">
-                            {ourWorks?.map((work) => (
+                            {ourWorks?.map((work, index) => (
+                                (index <= 5) ? (
                                 <img src={work.image} alt="" />
+                                ) : (
+                                    <></>
+                                )
                             ))}
                             {/* <img src={projects1} alt="" />
                             <img src={projects2} alt="" />
@@ -295,13 +310,21 @@ const Home = ({ theme, lang, screen }) => {
                             <img src={projects6} alt="" /> */}
                         </div>
                         <div className="row middle">
-                            {ourWorks?.map((work) => (
+                            {ourWorks?.map((work, index) => (
+                                (index > 5 && index <= 11) ? (
                                 <img src={work.image} alt="" />
+                                ) : (
+                                    <></>
+                                )
                             ))}
                         </div>
                         <div className="row lower">
-                            {ourWorks?.map((work) => (
+                            {ourWorks?.map((work, index) => (
+                                (index > 11 && index <= 17) ? (
                                 <img src={work.image} alt="" />
+                                ) : (
+                                    <></>
+                                )
                             ))}
                         </div>
                     </div>

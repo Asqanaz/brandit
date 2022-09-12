@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffectuseLayoutEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { Link } from "react-router-dom"
 import "./portfolio.css"
 import portfolio1 from "../../assets/images/portfolio1.png"
@@ -11,6 +11,8 @@ import { categoriesDatas } from "./datas/categoriesDatas"
 
 const Portfolio = ({ theme, lang, screen }) => {
     const [projects, setProjects] = useState();
+    const [activeProjects, setActiveProjects] = useState();
+    let actives = [];
 
     useLayoutEffect(() => {
 		let isMounted = true;
@@ -36,18 +38,30 @@ const Portfolio = ({ theme, lang, screen }) => {
             mode: 'cors',
 	  
 		  });
+
 		let obj = await response.json();
         let c = [];
         let k = 0;
-
         for(let i = 0; i < obj.length; i++){
-            if(obj[i].active){
+            if(obj[i].active)
+            {
                 c[k] = obj[i];
                 k++;
             }
         }
 
 		setProjects(c);
+        setActiveProjects(c);
+
+        // for(let i = 0; i < obj.length; i++){
+        //     if(obj[i].active)
+        //     {
+        //         c[k] = obj[i];
+        //         k++;
+        //     }
+        // }
+
+        // setAllProjects(c);
     }
 
     const handleUnderLine = (e) => {
@@ -57,6 +71,39 @@ const Portfolio = ({ theme, lang, screen }) => {
                 : e.target.classList.remove("active")
         })
     }
+
+    const onCategoryClick = async (e) => {
+        console.log(projects);
+        
+        if(e.target.title !== "All"){
+            // let c = [];
+            // let k = 0;
+            // console.log(e.target.title);
+            // for(let i = 0; i < projects.length; i++){
+            //     if(projects[i].project_type === e.target.title){
+            //         c[k] = projects[i];
+            //         k++;
+            //     }
+            // }
+            // setProjects(c);  
+
+            let j = 0;
+		    for (let i = 0; i < projects.length; i++) {
+			    if (projects[i]?.project_type == e.target.title) {
+				    actives[j] = projects[i];
+				    j++;
+			    }
+		    }
+
+		    setActiveProjects(actives);
+		    console.log(activeProjects);
+        }else{
+            setActiveProjects(projects);
+        }
+
+        
+    }
+
     return (
         <>
             <div className="portfolio container">
@@ -65,7 +112,7 @@ const Portfolio = ({ theme, lang, screen }) => {
                 <div className="categories-wrapper">
                     <ul className="categories-list">
                         {categoriesDatas.map((item) => (
-                            <li key={item.id} onClick={handleUnderLine}>
+                            <li key={item.id} onClick={onCategoryClick} title={item.title}>
                                 {item.title}
                             </li>
                         ))}
@@ -73,7 +120,7 @@ const Portfolio = ({ theme, lang, screen }) => {
                 </div>
                 <div className="images-wrapper">
                     <div className="upper-col">
-                        {projects?.map((project, index) =>(
+                        {activeProjects?.map((project, index) =>(
                         (index < 3) ? (<div className="portfolio-item">
                             <Link to="/portfolio-info" state={{title: project?.title}}>
                                 <img
@@ -94,7 +141,7 @@ const Portfolio = ({ theme, lang, screen }) => {
                         ))}
                     </div>
 
-                        {projects?.map((project, index) => (
+                        {activeProjects?.map((project, index) => (
                             (index == 3) ? (
                                 <div className="portfolio-item middle">
                                 <Link to="/portfolio-info" state={{title: project?.title}}>
@@ -116,8 +163,8 @@ const Portfolio = ({ theme, lang, screen }) => {
                         ))}
 
                         <div className="lower-col">
-                            {projects?.map((project, index) =>(
-                                (index > 3) ? (
+                            {activeProjects?.map((project, index) =>(
+                                (index > 3 && index <= 5) ? (
                                  <div className="portfolio-item">
                                  <Link to="/portfolio-info" state={{title: project?.title}}>
                                      <img

@@ -55,7 +55,7 @@ class PriceOffer(models.Model):
     project_type = models.ForeignKey(to=ProjectType, on_delete=models.CASCADE, default='', to_field='title')
     company_name = models.CharField(blank=True, max_length=50)
     about_project = models.TextField(default='')
-    file = models.FileField(blank=True, upload_to='project-files/price-offer')
+    #file = models.FileField(blank=True, upload_to='project-files/price-offer')
     firstname = models.CharField(blank=True, max_length=50)
     surname = models.CharField(blank=True, max_length=50)
     email = models.CharField(blank=True, max_length=50)
@@ -70,8 +70,8 @@ class ScheduleACall(models.Model):
     surname = models.CharField(blank=True, max_length=50)
     email = models.CharField(blank=True, max_length=50)
     phone = models.CharField(blank=True, max_length=50)
-    date = models.DateField()
-    time = models.TimeField(auto_now=False, auto_now_add=False)
+    date = models.CharField(blank=True, max_length=200)
+    time =  models.CharField(blank=True, max_length=200)
 
     def __str__(self):
         return self.email
@@ -79,6 +79,7 @@ class ScheduleACall(models.Model):
 class OurWork(models.Model):
     title = models.CharField(blank=True, max_length=100)
     image = models.FileField(blank=True, upload_to='images/our-works')
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

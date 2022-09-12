@@ -57,16 +57,20 @@ class ContactUsList(generics.ListCreateAPIView):
     serializer_class = ContactUsSerializer
 
     def perform_create(self, serializer):
-        if validate_email(serializer['email'].value, check_mx=False, verify=True):
-            subject = 'Contact Us'
-            message = f'Ողջույն, ես {serializer["name"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}: Նամակ - {serializer["email"].value}'
-            send_mail_message(subject, message)
-            print('200')
-            return Response(status=status.HTTP_200_OK)
-        else:
-            print(serializer['email'].value)
-            return Response(status=status.HTTP_404_NOT_FOUND)
+        # if validate_email(serializer['email'].value, check_mx=False, verify=True):
+        #     subject = 'Contact Us'
+        #     message = f'Ողջույն, ես {serializer["name"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}: Նամակ - {serializer["email"].value}'
+        #     send_mail_message(subject, message)
+        #     print('200')
+        #     return Response(status=status.HTTP_200_OK)
+        # else:
+        #     print('500')
+        #     return Response(status=status.HTTP_404_NOT_FOUND)
 
+        subject = 'Contact Us'
+        message = f'Ողջույն, ես {serializer["name"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}: Նամակ - {serializer["email"].value}'
+        send_mail_message(subject, message)
+        #serializer.save()
 
 class ContactUsDetail(generics.RetrieveAPIView):
     queryset = ContactUs.objects.all()
@@ -77,10 +81,10 @@ class PriceOfferList(generics.ListCreateAPIView):
     serializer_class = PriceOfferSerializer
 
     def perform_create(self, serializer):
-        subject = 'Price Offer'
-        message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Պրոեկտ - {serializer["project_type"].value}: Ընկերության անվանում - {serializer["company_name"].value} Պրոեկտի Նկարագրություն - {serializer["about_project"].value}'
-        send_mail_message(subject, message)
         serializer.save()
+        # subject = 'Price Offer'
+        # message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Պրոեկտ - {serializer["project_type"].value}: Ընկերության անվանում - {serializer["company_name"].value} Պրոեկտի Նկարագրություն - {serializer["about_project"].value}'
+        # send_mail_message(subject, message)
 
 class PriceOfferDetail(generics.RetrieveAPIView):
     queryset = PriceOffer.objects.all()
@@ -91,10 +95,10 @@ class ScheduleACallList(generics.ListCreateAPIView):
     serializer_class = ScheduleACallSerializer
 
     def perform_create(self, serializer):
-        subject = 'Schedule a Call'
-        message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Զանգի նպատակը - {serializer["project_type"].value}: Օր/Ժամ - {serializer["date"].value} {serializer["time"].value}'
-        send_mail_message(subject, message)
         serializer.save()
+        # subject = 'Schedule a Call'
+        # message = f'Ողջույն, ես {serializer["firstname"].value} {serializer["lastname"].value}ն եմ: Իմ էլ. փոստը - {serializer["email"].value}, Հեռ. - {serializer["phone"].value}: Զանգի նպատակը - {serializer["project_type"].value}: Օր/Ժամ - {serializer["date"].value} {serializer["time"].value}'
+        # send_mail_message(subject, message)
 
 class ScheduleACallDetail(generics.RetrieveAPIView):
     queryset = ScheduleACall.objects.all()
@@ -113,6 +117,5 @@ class OurWorkDetail(generics.RetrieveAPIView):
 
 def send_mail_message(subject, message):
     email_from = settings.EMAIL_HOST_USER
-    print(email_from)
     recipient_list = [email_from]
     send_mail(subject, message , email_from ,recipient_list )
