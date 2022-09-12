@@ -152,11 +152,9 @@
         margin-top: 22px;
     }
     .image.title{
-        font-size: 2vw;
-    }
-
-    .title-box{
-        height: 3vh;
+        font-size: 1.4rem;
+        margin-left: .5rem;
+        margin-bottom: .2rem;
     }
 
     .categories-list li{

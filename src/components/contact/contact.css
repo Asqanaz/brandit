@@ -26,6 +26,10 @@
 
 @media (max-width: 600px){
 
+    .contact.container{
+        margin-top: 22px;
+    }
+
     .contact.text{
         font-size: 4.5vw;
     }
