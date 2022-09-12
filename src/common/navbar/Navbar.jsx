@@ -17,19 +17,27 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
 
     const [isChecked, setIsChecked] = useState(false)
 
-    useEffect(() => {
-        const handleNavbarToggle = (e) => {
-            if (window.matchMedia("(min-width: 600px)").matches) {
-                if (e.clientY >= 180) {
-                    navbarRef.current.style.top = -90 + "px"
-                    navbarRef.current.style.transition = 0.7 + "s"
-                } else {
-                    navbarRef.current.style.top = 0
-                    navbarRef.current.style.transition = 0.7 + "s"
-                }
+    const handleNavbarToggle = (e) => {
+        if (window.matchMedia("(min-width: 600px)").matches) {
+            if (e.clientY >= 180) {
+                navbarRef.current.style.top = -90 + "px"
+                navbarRef.current.style.transition = 0.7 + "s"
+            } else {
+                navbarRef.current.style.top = 0
+                navbarRef.current.style.transition = 0.7 + "s"
             }
         }
-        document.addEventListener("mousemove", handleNavbarToggle)
+    }
+    useEffect(() => {
+        document.addEventListener("scroll", function () {
+            if (document.documentElement.scrollTop > 600) {
+                window.addEventListener("mousemove", handleNavbarToggle)
+                navbarRef.current.style.top = -90 + "px"
+            } else {
+                window.removeEventListener("mousemove", handleNavbarToggle)
+                navbarRef.current.style.top = 0
+            }
+        })
 
         return () => document.removeEventListener("mousemove", handleNavbarToggle)
     }, [])
@@ -139,11 +147,12 @@ const Navbar = ({ theme, setTheme, lang, setLang, screen }) => {
                                 </div>
                             )}
                             <div className="burger-menu">
-                                {!isChecked && (theme === "dark" ? (
-                                    <BsSun onClick={handleChangeTheme} className="theme-icon" />
-                                ) : (
-                                    <GrMoon onClick={handleChangeTheme} className="theme-icon" />
-                                ))}
+                                {!isChecked &&
+                                    (theme === "dark" ? (
+                                        <BsSun onClick={handleChangeTheme} className="theme-icon" />
+                                    ) : (
+                                        <GrMoon onClick={handleChangeTheme} className="theme-icon" />
+                                    ))}
                                 <div className={`hamburger-lines ${theme}`}>
                                     <span className="line line1"></span>
                                     <span className="line line2"></span>

@@ -296,10 +296,8 @@ const Home = ({ theme, lang, screen }) => {
                     <div className="slide">
                         <div className="row upper">
                             {ourWorks?.map((work, index) => (
-                                (index <= 5) ? (
+                                (index <= 5) && (
                                 <img src={work.image} alt="" />
-                                ) : (
-                                    <></>
                                 )
                             ))}
                             {/* <img src={projects1} alt="" />
@@ -311,19 +309,15 @@ const Home = ({ theme, lang, screen }) => {
                         </div>
                         <div className="row middle">
                             {ourWorks?.map((work, index) => (
-                                (index > 5 && index <= 11) ? (
+                                (index > 5 && index <= 11) && (
                                 <img src={work.image} alt="" />
-                                ) : (
-                                    <></>
                                 )
                             ))}
                         </div>
                         <div className="row lower">
                             {ourWorks?.map((work, index) => (
-                                (index > 11 && index <= 17) ? (
+                                (index > 11 && index <= 17) && (
                                 <img src={work.image} alt="" />
-                                ) : (
-                                    <></>
                                 )
                             ))}
                         </div>
